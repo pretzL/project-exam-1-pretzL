@@ -379,4 +379,25 @@ h4 {
 /* DESKTOP */
 
 @media only screen and (min-width: 1380px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+  }
+
+  .navbar ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .navbar ul li {
+    list-style-type: none;
+  }
+
+  .navbar ul li a {
+    text-decoration: none;
+    color: black;
+  }
 }
