@@ -179,6 +179,42 @@ h4 {
   text-decoration: underline;
 }
 
+.about-author,
+.author-of {
+  display: grid;
+  width: 90%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  background-color: var(--orange-background);
+}
+
+.about-author {
+  grid-template-areas:
+    "author-grid1 author-grid2 author-grid2"
+    "author-grid3 author-grid3 author-grid3";
+}
+
+.author-grid0 {
+  grid-area: author-grid0;
+}
+
+.author-grid1 {
+  grid-area: author-grid1;
+}
+
+.author-grid2 {
+  grid-area: author-grid2;
+}
+
+.author-grid3 {
+  grid-area: author-grid3;
+}
+
+.author-of {
+  grid-template-rows: 1fr 1fr;
+}
+
 /* NAVIGATION */
 
 .navbar {
@@ -194,6 +230,12 @@ h4 {
 
 .about-image {
   width: 100%;
+}
+
+.user-profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 /* ICONS */
