@@ -9,7 +9,7 @@ if (id === null) {
   location.href = "/";
 }
 
-const baseURL = "http://pretzl.one/foodforthought/wp-json/wp/v2/posts/";
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts/";
 
 const detailsURL = baseURL + id + "?_embed";
 

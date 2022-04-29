@@ -6,7 +6,7 @@ const whatPeopleLove = document.querySelector(".what-people-love-list");
 
 // FETCH
 
-const baseURL = "http://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed";
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed";
 
 async function getRecipes() {
   try {
