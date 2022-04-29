@@ -36,20 +36,20 @@ async function fetchSingleRecipe() {
 
     blogContent.innerHTML = `
     <div class="blog-page-card blog-description blog-grid1">
-        <h3>Description<h3>
+        <h3>Description</h3>
         <p>${result.acf.description}</p>
     </div>
     <div class="blog-page-card blog-recipe blog-grid2">
-        <h3>Description<h3>
+        <h3>Description</h3>
         <p>${result.acf.recipe}</p>
     </div>
     <div class="blog-page-card blog-about blog-grid3">
-        <h3>About<h3>
+        <h3>About</h3>
         <div class="blog-author-info">
             <img src="${result._embedded.author[0].avatar_urls[96]}" alt="${result._embedded.author[0].name} avatar image" class="user-profile-image"/>
             <div>
-            <h4 class="author-name-title">${result._embedded.author[0].name}</h4>
-            <p>${result._embedded.author[0].description}</p>
+              <h4 class="author-name-title">${result._embedded.author[0].name}</h4>
+              <p>${result._embedded.author[0].description}</p>
             </div>
         </div>
         <div class="blog-post-info">

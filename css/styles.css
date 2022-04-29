@@ -348,6 +348,7 @@ h4 {
 .blog-post-info {
   margin-top: 2rem;
   font-size: 0.9rem;
+  align-self: center;
 }
 
 .index-list-container {
