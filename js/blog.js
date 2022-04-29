@@ -34,13 +34,6 @@ async function fetchSingleRecipe() {
     const date = result.date;
     const dateFix = date.split("T")[0];
 
-    let tags = "";
-    if (result.tags === 0) {
-      tags = result.tags;
-    } else {
-      tags = "Uncategorized";
-    }
-
     blogContent.innerHTML = `
     <div class="blog-page-card blog-description blog-grid1">
         <h3>Description<h3>
@@ -61,7 +54,8 @@ async function fetchSingleRecipe() {
         </div>
         <div class="blog-post-info">
             <p>Posted: ${dateFix}</p>
-            <p>Categories: ${tags}</p>
+            <p>Categories: ${result._embedded["wp:term"]["0"]["0"].name}</p>
+            <p>Tags: ${result._embedded["wp:term"]["1"]["0"].name}, ${result._embedded["wp:term"]["1"]["1"].name}, ${result._embedded["wp:term"]["1"]["2"].name}</p>
         </div>
     </div>
     <div class="blog-page-card blog-similar blog-grid4">
