@@ -38,7 +38,7 @@ async function fetchSingleRecipe() {
     </div>
     <div class="blog-page-card blog-recipe blog-grid2">
         <h3>Description<h3>
-        <p>${result.acf.recipe}</p>
+        <p>${result.x_metadata.recipe}</p>
     </div>
     <div class="blog-page-card blog-about blog-grid3">
         <h3>About<h3>
@@ -48,6 +48,10 @@ async function fetchSingleRecipe() {
             <h4 class="author-name-title">${result._embedded.author[0].name}</h4>
             <p>${result._embedded.author[0].description}</p>
             </div>
+        </div>
+        <div class="blog-post-info">
+            <p>Posted: ${result.x_date}</p>
+            <p>Categories: ${result.x_categories}</p>
         </div>
     </div>
     <div class="blog-page-card blog-similar blog-grid4">
