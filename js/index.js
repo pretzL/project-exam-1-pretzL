@@ -16,6 +16,8 @@ async function getRecipes() {
     console.log(results);
 
     carouselContainer.innerHTML = "";
+    whatsNew.innerHTML = "";
+    whatPeopleLove.innerHTML = "";
 
     for (let i = 0; i < results.length; i++) {
       const date = results[i].date;
