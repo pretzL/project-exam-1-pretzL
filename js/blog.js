@@ -31,6 +31,16 @@ async function fetchSingleRecipe() {
     pageHeading.innerText = result.title.rendered;
     blogBanner.innerHTML = `<img src="${result._embedded["wp:featuredmedia"]["0"].source_url}" alt="${result.title.rendered}" class="blog-page-banner-image" />`;
 
+    const date = result.date;
+    const dateFix = date.split("T")[0];
+
+    let tags = "";
+    if (result.tags === 0) {
+      tags = result.tags;
+    } else {
+      tags = "Uncategorized";
+    }
+
     blogContent.innerHTML = `
     <div class="blog-page-card blog-description blog-grid1">
         <h3>Description<h3>
@@ -38,7 +48,7 @@ async function fetchSingleRecipe() {
     </div>
     <div class="blog-page-card blog-recipe blog-grid2">
         <h3>Description<h3>
-        <p>${result.x_metadata.recipe}</p>
+        <p>${result.acf.recipe}</p>
     </div>
     <div class="blog-page-card blog-about blog-grid3">
         <h3>About<h3>
@@ -50,8 +60,8 @@ async function fetchSingleRecipe() {
             </div>
         </div>
         <div class="blog-post-info">
-            <p>Posted: ${result.x_date}</p>
-            <p>Categories: ${result.x_categories}</p>
+            <p>Posted: ${dateFix}</p>
+            <p>Categories: ${tags}</p>
         </div>
     </div>
     <div class="blog-page-card blog-similar blog-grid4">
