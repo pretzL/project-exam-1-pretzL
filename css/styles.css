@@ -369,6 +369,7 @@ h4 {
 .blog-list-container {
   display: grid;
   margin-bottom: 2rem;
+  gap: 1rem;
   grid-template-columns: 1fr;
 }
 
