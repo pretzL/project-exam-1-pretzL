@@ -552,6 +552,7 @@ h4 {
 
   .about-blog {
     display: grid;
+    width: 70%;
     grid-gap: 5rem;
     grid-template-areas: "about-grid1 about-grid2 about-grid2";
     margin: 2rem 0;
