@@ -365,6 +365,12 @@ h4 {
   text-decoration: underline;
 }
 
+.blog-list-container {
+  display: grid;
+  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+}
+
 /* NAVIGATION */
 
 .navbar {
@@ -665,5 +671,11 @@ h4 {
     grid-template-areas:
       "blog-grid1 blog-grid1 blog-grid3"
       "blog-grid2 blog-grid2 blog-grid4";
+  }
+
+  .blog-list-container {
+    display: grid;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
