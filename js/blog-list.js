@@ -2,7 +2,7 @@ const blogList = document.querySelector(".blog-list-container");
 
 // FETCH
 
-const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed";
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed&acf_format=standard";
 
 async function getRecipes() {
   try {

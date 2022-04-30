@@ -11,7 +11,7 @@ if (id === null) {
 
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts/";
 
-const detailsURL = baseURL + id + "?_embed";
+const detailsURL = baseURL + id + "?_embed&acf_format=standard";
 
 const blogContent = document.querySelector(".blog-page-content");
 
