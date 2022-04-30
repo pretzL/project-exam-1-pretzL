@@ -19,17 +19,35 @@ async function getRecipes() {
     whatsNew.innerHTML = "";
     whatPeopleLove.innerHTML = "";
 
+    for (let c = 0; c < results.length; c++) {
+      const date = results[c].date;
+      const dateFix = date.split("T")[0];
+
+      carouselContainer.innerHTML += `<a href="/blog.html?id=${results[c].id}" class="card">
+        <img src="${results[c]._embedded["wp:featuredmedia"]["0"].source_url}" class="card-image" alt="${results[c].title.rendered}"/>
+        <h3>${results[c].title.rendered}</h3>
+        <p>Posted: ${dateFix}</p>
+        </a>`;
+    }
+
+    for (let a = 0; a < results.length; a++) {
+      const date = results[a].date;
+      const dateFix = date.split("T")[0];
+
+      if (a === 10) {
+        break;
+      }
+
+      previousArticles.innerHTML += `<a href="/blog.html?id=${results[a].id}" class="previous-articles-link">${results[a].title.rendered}, ${dateFix}</a>`;
+    }
+
     for (let i = 0; i < results.length; i++) {
       const date = results[i].date;
       const dateFix = date.split("T")[0];
 
-      carouselContainer.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card">
-        <img src="${results[i]._embedded["wp:featuredmedia"]["0"].source_url}" class="card-image" alt="${results[i].title.rendered}"/>
-        <h3>${results[i].title.rendered}</h3>
-        <p>Posted: ${dateFix}</p>
-        </a>`;
-
-      previousArticles.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="previous-articles-link">${results[i].title.rendered}, ${dateFix}</a>`;
+      if (i === 5) {
+        break;
+      }
 
       whatsNew.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card-small">
       <img src="${results[i]._embedded["wp:featuredmedia"]["0"].source_url}" class="card-image" alt="${results[i].title.rendered}"/>
