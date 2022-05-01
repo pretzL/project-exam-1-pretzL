@@ -689,32 +689,8 @@ h4 {
   }
 
   .blog-list-container {
-    display: grid;
-    margin-bottom: 2rem;
-    grid-gap: 2rem;
-    grid-template-areas:
-      "blog-list-grid1 blog-list-grid1 blog-list-grid1 blog-list-grid1"
-      "blog-list-grid2 blog-list-grid2 blog-list-grid3 blog-list-grid3"
-      "blog-list-grid2 blog-list-grid2 blog-list-grid4 blog-list-grid5";
-  }
-
-  .blog-list-grid1 {
-    grid-area: blog-list-grid1;
-  }
-
-  .blog-list-grid2 {
-    grid-area: blog-list-grid2;
-  }
-
-  .blog-list-grid3 {
-    grid-area: blog-list-grid3;
-  }
-
-  .blog-list-grid4 {
-    grid-area: blog-list-grid4;
-  }
-
-  .blog-list-grid5 {
-    grid-area: blog-list-grid5;
+    gap: 2rem;
+    width: 80%;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
