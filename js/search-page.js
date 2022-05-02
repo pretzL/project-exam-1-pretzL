@@ -28,9 +28,8 @@ async function getSearch() {
         errorContainer.innerHTML = errorMessage("We don't recognize that recipe");
         errorContainer.style.display = "block";
       }
-      if (results.length < 1) {
-        errorContainer.innerHTML = errorMessage("Please be more specific");
-        errorContainer.style.display = "block";
+      if (results[i].title === "Sample Page") {
+        continue;
       }
 
       const date = results[i]._embedded.self[0].date;
