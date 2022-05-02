@@ -500,6 +500,42 @@ h4 {
   margin: 1rem 0;
 }
 
+.search-dropdown {
+  background-color: white;
+  position: absolute;
+  display: none;
+  top: 100px;
+  padding: 1rem 0;
+  width: 100%;
+  left: 0;
+}
+
+.searchbar-pos {
+  display: flex;
+}
+
+.searchbar-pos > input {
+  width: 60vw;
+  height: 50px;
+  padding: 1rem;
+  border: var(--border) var(--orange-background);
+}
+
+.searchbar-pos > button {
+  text-decoration: none;
+  color: white;
+  background-color: var(--orange-background);
+  padding: 0.7rem 1rem;
+  border: var(--border) var(--orange-background);
+  height: 50px;
+}
+
+.search-active {
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+
 /* IMAGES */
 
 .header-image {

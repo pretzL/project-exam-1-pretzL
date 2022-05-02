@@ -30,7 +30,7 @@ async function fetchSingleRecipe() {
 
     pageTitle.innerText = result.title.rendered + " | Food For Thought";
     pageHeading.innerText = result.title.rendered;
-    blogBanner.innerHTML = `<img src="${result._embedded["wp:featuredmedia"]["0"].source_url}" alt="${result.title.rendered}" class="blog-page-banner-image" />`;
+    blogBanner.innerHTML = `<img src="${result.acf.banner_image}" alt="${result.title.rendered}" class="blog-page-banner-image" />`;
 
     const date = result.date;
     const dateFix = date.split("T")[0];

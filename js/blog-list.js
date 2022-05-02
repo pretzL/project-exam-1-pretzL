@@ -20,7 +20,7 @@ async function getRecipes() {
       const gridClass = "blog-list-grid" + (i + 1);
 
       blogList.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card blog-card ${gridClass}">
-        <img src="${results[i]._embedded["wp:featuredmedia"]["0"].source_url}" class="card-image" alt="${results[i].title.rendered}"/>
+        <img src="${results[i].acf.banner_image}" class="card-image" alt="${results[i].title.rendered}"/>
         <h3>${results[i].title.rendered}</h3>
         <p>Posted: ${dateFix}</p>
         </a>`;
