@@ -384,6 +384,7 @@ h4 {
   margin-bottom: 2rem;
   gap: 1rem;
   grid-template-columns: 1fr;
+  width: 80%;
 }
 
 /* NAVIGATION */
@@ -732,7 +733,6 @@ h4 {
 
   .blog-list-container {
     gap: 2rem;
-    width: 80%;
     grid-template-columns: repeat(4, 1fr);
   }
 
