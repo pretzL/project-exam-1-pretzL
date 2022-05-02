@@ -379,7 +379,8 @@ h4 {
   text-decoration: underline;
 }
 
-.blog-list-container {
+.blog-list-container,
+.search-content {
   display: grid;
   margin-bottom: 2rem;
   gap: 1rem;
@@ -767,7 +768,8 @@ h4 {
       "blog-grid2 blog-grid2 blog-grid4";
   }
 
-  .blog-list-container {
+  .blog-list-container,
+  .search-content {
     gap: 2rem;
     grid-template-columns: repeat(4, 1fr);
   }

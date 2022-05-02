@@ -21,6 +21,8 @@ async function getSearch() {
 
     console.log(results);
 
+    searchTitle.innerText = `Search Term: "${search}"`;
+
     for (let i = 0; i < results.length; i++) {
       if (results.length === 0) {
         errorContainer.innerHTML = errorMessage("We don't recognize that recipe");
