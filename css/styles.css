@@ -847,7 +847,7 @@ h4 {
   .category-dropdown {
     position: absolute;
     display: none;
-    padding: 1rem 1rem;
+    padding: 1rem;
     border-radius: 0 0 10px 10px;
     width: auto;
     left: auto;
