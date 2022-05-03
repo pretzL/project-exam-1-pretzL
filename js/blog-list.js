@@ -2,16 +2,34 @@ const blogList = document.querySelector(".blog-list-container");
 
 // FETCH
 
-const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed&acf_format=standard";
+const queryString = document.location.search;
+
+const params = new URLSearchParams(queryString);
+
+const cat = params.get("category");
+
+const fullCategory = "/?categories=" + cat;
+
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts";
+
+let fullURL = baseURL + "?_embed&acf_format=standard&per_page=20";
+
+if (cat !== null) {
+  fullURL = baseURL + fullCategory + "&_embed&acf_format=standard&per_page=20";
+}
 
 async function getRecipes() {
   try {
-    const response = await fetch(baseURL);
+    const response = await fetch(fullURL);
     const results = await response.json();
 
     console.log(results);
 
     blogList.innerHTML = "";
+
+    if (results.length === 0) {
+      errorContainer.innerHTML = `There are no blogs in this category yet...`;
+    }
 
     for (let i = 0; i < results.length; i++) {
       const date = results[i].date;
