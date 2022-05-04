@@ -8,6 +8,8 @@ const whatPeopleLove = document.querySelector(".what-people-love-list");
 
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed&acf_format=standard&per_page=20";
 
+let itemCount;
+
 async function getRecipes() {
   try {
     const response = await fetch(baseURL);
@@ -61,6 +63,8 @@ async function getRecipes() {
       <p>${dateFix}</p>
       </div></a>`;
     }
+
+    itemCount = results.length;
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
@@ -70,3 +74,28 @@ async function getRecipes() {
 getRecipes();
 
 // CAROUSEL
+
+document.addEventListener("click", (e) => {
+  let carouselButton;
+  if (e.target.matches(".arrow")) {
+    carouselButton = e.target;
+  } else {
+    carouselButton = e.target.closest(".arrow");
+  }
+
+  if (carouselButton != null) {
+    moveCarousel(carouselButton);
+  }
+});
+
+function moveCarousel(button) {
+  const carouselContainer = document.querySelector(".carousel-container");
+  const carouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--carousel-index"));
+  if (button.classList.contains("left-arrow")) {
+    carouselContainer.style.setProperty("--carousel-index", carouselIndex - 1);
+  }
+
+  if (button.classList.contains("right-arrow")) {
+    carouselContainer.style.setProperty("--carousel-index", carouselIndex + 1);
+  }
+}
