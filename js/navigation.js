@@ -31,8 +31,6 @@ async function getCategories() {
     const response = await fetch(catURL);
     const results = await response.json();
 
-    console.log(results);
-
     catDropdown.innerHTML = "";
 
     for (let i = 0; i < results.length; i++) {

@@ -13,8 +13,6 @@ async function getRecipes() {
     const response = await fetch(baseURL);
     const results = await response.json();
 
-    console.log(results);
-
     carouselContainer.innerHTML = "";
     whatsNew.innerHTML = "";
     whatPeopleLove.innerHTML = "";

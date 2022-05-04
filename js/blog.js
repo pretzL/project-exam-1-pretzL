@@ -25,7 +25,6 @@ async function fetchSingleRecipe() {
     const response = await fetch(detailsURL);
     const result = await response.json();
 
-    console.log(result);
     blogContent.innerHTML = "";
 
     pageTitle.innerText = result.title.rendered + " | Food For Thought";

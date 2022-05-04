@@ -383,6 +383,12 @@ h4 {
   text-decoration: underline;
 }
 
+.blog-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .blog-list-container,
 .search-content {
   display: grid;

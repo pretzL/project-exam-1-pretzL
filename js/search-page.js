@@ -19,8 +19,6 @@ async function getSearch() {
     const response = await fetch(url);
     const results = await response.json();
 
-    console.log(results);
-
     searchTitle.innerText = `Search Term: "${search}"`;
 
     for (let i = 0; i < results.length; i++) {
