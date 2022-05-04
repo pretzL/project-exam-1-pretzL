@@ -410,6 +410,11 @@ h4 {
   align-items: center;
 }
 
+.blog-list-button {
+  align-self: end;
+  justify-self: end;
+}
+
 /* NAVIGATION */
 
 .navbar,

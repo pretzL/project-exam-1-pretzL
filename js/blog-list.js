@@ -61,7 +61,7 @@ async function getRecipes() {
               <p>Posted: ${dateFix}</p>
               </a>`;
       }
-      itemContainer.innerHTML += `<button class="btn blog-button${i}">View more</button>`;
+      itemContainer.innerHTML += `<button class="btn blog-list-button blog-button${i}">View more</button>`;
 
       const blogButton = document.querySelector(`.blog-button0`);
 
