@@ -34,6 +34,9 @@ async function getCategories() {
     catDropdown.innerHTML = "";
 
     for (let i = 0; i < results.length; i++) {
+      if (results[i].name === "Uncategorized") {
+        continue;
+      }
       catDropdown.innerHTML += `<a href="/blog-list.html?category=${results[i].id}" class="nav-link">${results[i].name}</a>`;
     }
   } catch (error) {
