@@ -43,6 +43,10 @@ async function getRecipes() {
 
       const itemContainer = document.querySelector(`.container${i}`);
 
+      if (i > 0) {
+        itemContainer.classList.add("blog-hidden");
+      }
+
       const items = grid[i];
 
       for (let c = 0; c < items.length; c++) {
@@ -57,6 +61,19 @@ async function getRecipes() {
               <p>Posted: ${dateFix}</p>
               </a>`;
       }
+      itemContainer.innerHTML += `<button class="btn blog-button${i}">View more</button>`;
+
+      const blogButton = document.querySelector(`.blog-button0`);
+
+      blogButton.addEventListener("click", () => {
+        if (blogButton.innerHTML === "View more") {
+          blogButton.innerHTML = "View less";
+        } else {
+          blogButton.innerHTML = "View more";
+        }
+
+        itemContainer.classList.toggle("blog-hidden");
+      });
     }
   } catch (error) {
     console.log(error);

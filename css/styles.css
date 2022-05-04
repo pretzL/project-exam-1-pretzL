@@ -399,6 +399,10 @@ h4 {
   min-height: 40vh;
 }
 
+.blog-hidden {
+  display: none;
+}
+
 .welcome-content {
   gap: 1rem;
   display: flex;
