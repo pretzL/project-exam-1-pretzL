@@ -250,6 +250,7 @@ h4 {
 .card,
 .card-small {
   width: 300px;
+  height: 300px;
   background-color: var(--light-grey);
   box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
   border-radius: 5px;
@@ -396,7 +397,7 @@ h4 {
   gap: 1rem;
   grid-template-columns: 1fr;
   width: 90%;
-  min-height: 40vh;
+  min-height: 50vh;
 }
 
 .blog-hidden {
