@@ -8,8 +8,6 @@ const whatPeopleLove = document.querySelector(".what-people-love-list");
 
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed&acf_format=standard&per_page=20";
 
-let itemCount;
-
 async function getRecipes() {
   try {
     const response = await fetch(baseURL);
@@ -64,7 +62,42 @@ async function getRecipes() {
       </div></a>`;
     }
 
-    itemCount = results.length;
+    // CAROUSEL
+
+    document.addEventListener("click", (e) => {
+      let carouselButton;
+      if (e.target.matches(".arrow")) {
+        carouselButton = e.target;
+      } else {
+        carouselButton = e.target.closest(".arrow");
+      }
+
+      if (carouselButton != null) {
+        moveCarousel(carouselButton);
+      }
+    });
+
+    function moveCarousel(button) {
+      const carouselContainer = document.querySelector(".carousel-container");
+      const carouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--carousel-index"));
+      const itemsPerScreen = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--items-per-screen"));
+
+      if (button.classList.contains("left-arrow")) {
+        if (carouselIndex - 1 < 0) {
+          carouselContainer.style.setProperty("--carousel-index", results.length / itemsPerScreen - 1);
+        } else {
+          carouselContainer.style.setProperty("--carousel-index", carouselIndex - 1);
+        }
+      }
+
+      if (button.classList.contains("right-arrow")) {
+        if (carouselIndex + 1 >= results.length / itemsPerScreen) {
+          carouselContainer.style.setProperty("--carousel-index", 0);
+        } else {
+          carouselContainer.style.setProperty("--carousel-index", carouselIndex + 1);
+        }
+      }
+    }
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
@@ -72,30 +105,3 @@ async function getRecipes() {
 }
 
 getRecipes();
-
-// CAROUSEL
-
-document.addEventListener("click", (e) => {
-  let carouselButton;
-  if (e.target.matches(".arrow")) {
-    carouselButton = e.target;
-  } else {
-    carouselButton = e.target.closest(".arrow");
-  }
-
-  if (carouselButton != null) {
-    moveCarousel(carouselButton);
-  }
-});
-
-function moveCarousel(button) {
-  const carouselContainer = document.querySelector(".carousel-container");
-  const carouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--carousel-index"));
-  if (button.classList.contains("left-arrow")) {
-    carouselContainer.style.setProperty("--carousel-index", carouselIndex - 1);
-  }
-
-  if (button.classList.contains("right-arrow")) {
-    carouselContainer.style.setProperty("--carousel-index", carouselIndex + 1);
-  }
-}
