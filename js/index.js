@@ -62,7 +62,7 @@ async function getRecipes() {
       </div></a>`;
     }
 
-    // CAROUSEL
+    // CAROUSEL FROM https://www.youtube.com/watch?v=yq4BeRtUHbk
 
     document.addEventListener("click", (e) => {
       let carouselButton;

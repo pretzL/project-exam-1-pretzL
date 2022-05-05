@@ -350,7 +350,7 @@ h4 {
 }
 
 .blog-author-info p {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .author-name-title {
@@ -597,9 +597,12 @@ h4 {
 }
 
 .user-profile-image {
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
+}
+
+.author-image-title img {
+  width: 200px;
+  height: 200px;
 }
 
 .card-image {
@@ -664,6 +667,68 @@ h4 {
 
 .footer-icons i {
   font-size: 2rem;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 350ms ease-in;
+  z-index: 9999;
+}
+
+.modal.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-dialog {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 60%;
+  height: auto;
+  border-radius: 5px;
+  background: white;
+  overflow: auto;
+  cursor: default;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-content img {
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.close-modal {
+  align-self: flex-end;
+}
+
+.modal-text {
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+.modal-dialog > * {
+  padding: 1rem;
 }
 
 /* CAROUSEL */

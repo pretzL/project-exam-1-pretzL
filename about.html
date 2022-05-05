@@ -48,10 +48,17 @@
           </div>
         </header>
         <main>
+          <div id="modal1" class="modal">
+            <div class="modal-dialog">
+              <button class="close-modal" data-close aria-label="Close">X</button>
+              <div class="modal-content"></div>
+              <div class="modal-text"></div>
+            </div>
+          </div>
           <h2>About</h2>
           <section class="author-section about-author">
             <div class="flex author-image-title">
-              <img src="images/bZcKuZG.jpg" alt="User Profile Image" class="user-profile-image" />
+              <img src="images/bZcKuZG.jpg" alt="User Profile Image" class="user-profile-image open-modal" data-open="modal1" />
               <h3>Author Name</h3>
             </div>
             <p>
@@ -92,7 +99,7 @@
     </div>
     <script src="js/components/error.js"></script>
     <script src="/js/navigation.js"></script>
-    <script src="/js/blog-list.js" type="module"></script>
+    <script src="/js/image-modal.js"></script>
     <script src="/js/search.js"></script>
   </body>
 </html>
