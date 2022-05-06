@@ -34,7 +34,6 @@ async function getSearch() {
       const dateFix = date.split("T")[0];
 
       searchContainer.innerHTML += `<a href="/blog.html?id=${results[i]._embedded.self[0].id}" class="card">
-      <img src="${results[i]._embedded.self[0].acf.banner_image}" class="card-image" alt="${results[i]._embedded.self[0].title.rendered}"/>
       <h3>${results[i]._embedded.self[0].title.rendered}</h3>
       <p>Posted: ${dateFix}</p>
       </a>`;
