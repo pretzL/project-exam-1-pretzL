@@ -53,7 +53,7 @@ async function getRecipes() {
         const date = items[c].date;
         const dateFix = date.split("T")[0];
 
-        const gridClass = "blog-list-grid" + (i + 1);
+        const gridClass = "blog-list-grid" + (c + 1);
 
         itemContainer.innerHTML += `<a href="/blog.html?id=${items[c].id}" class="card blog-card ${gridClass}">
               <img src="${items[c].acf.banner_image}" class="card-image" alt="${items[c].title.rendered}"/>
@@ -61,11 +61,9 @@ async function getRecipes() {
               <p>Posted: ${dateFix}</p>
               </a>`;
       }
-      itemContainer.innerHTML += `<button class="btn blog-list-button blog-button">View more</button>`;
+      itemContainer.innerHTML += `<button class="btn blog-list-button blog-button blog-list-grid11">View more</button>`;
     }
     // VIEW MORE
-
-    const blogButton = document.querySelector(`.blog-button`);
 
     document.addEventListener("click", (e) => {
       let blogButton;
