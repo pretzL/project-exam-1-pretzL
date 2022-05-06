@@ -61,22 +61,28 @@ async function getRecipes() {
               <p>Posted: ${dateFix}</p>
               </a>`;
       }
-      itemContainer.innerHTML += `<button class="btn blog-list-button blog-button${i}">View more</button>`;
-
-      // VIEW MORE
-
-      const blogButton = document.querySelector(`.blog-button0`);
-
-      blogButton.addEventListener("click", () => {
-        if (blogButton.innerHTML === "View more") {
-          blogButton.innerHTML = "View less";
-        } else {
-          blogButton.innerHTML = "View more";
-        }
-
-        itemContainer.classList.toggle("blog-hidden");
-      });
+      itemContainer.innerHTML += `<button class="btn blog-list-button blog-button">View more</button>`;
     }
+    // VIEW MORE
+
+    const blogButton = document.querySelector(`.blog-button`);
+
+    document.addEventListener("click", (e) => {
+      let blogButton;
+      if (e.target.matches(".blog-button")) {
+        blogButton = e.target;
+      } else {
+        blogButton = e.target.closest(".blog-button");
+      }
+
+      if (e.target.innerHTML === "View more") {
+        e.target.innerHTML = "View less";
+      } else {
+        e.target.innerHTML = "View more";
+      }
+
+      e.target.parentElement.nextElementSibling.classList.toggle("blog-hidden");
+    });
   } catch (error) {
     console.log(error);
     errorContainer.innerHTML = errorMessage("An error occurred when calling the API, error: " + error);
