@@ -711,7 +711,7 @@ h4 {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 60%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
   background: white;
@@ -756,6 +756,7 @@ h4 {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  padding: 1rem 0;
 }
 
 .carousel-container {
@@ -1013,5 +1014,9 @@ h4 {
 
   .carousel-container {
     --items-per-screen: 4;
+  }
+
+  .modal-dialog {
+    width: 60%;
   }
 }
