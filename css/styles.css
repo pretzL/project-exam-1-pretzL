@@ -44,7 +44,7 @@ img {
 /* VARIABLES */
 
 :root {
-  --orange-background: #d0a25f;
+  --orange: #d0a25f;
   --green: #4d8057;
   --dark-grey: #464343;
   --light-grey: #e5e5e5;
@@ -117,7 +117,7 @@ footer {
   text-align: center;
   gap: 1rem;
   color: black;
-  background-color: var(--orange-background);
+  background-color: var(--orange);
   margin-top: auto;
 }
 
@@ -162,7 +162,7 @@ h4 {
 .about-blog {
   display: flex;
   flex-direction: column;
-  background-color: var(--orange-background);
+  background-color: var(--orange);
   border-radius: 10px;
   align-items: center;
   gap: 1rem;
@@ -201,7 +201,7 @@ h4 {
   padding: 0.5rem;
   margin: 1rem 0;
   border-radius: 10px;
-  background-color: var(--orange-background);
+  background-color: var(--orange);
 }
 
 .about-author {
@@ -220,8 +220,8 @@ h4 {
 }
 
 .author-of {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .author-image-title {
@@ -339,7 +339,7 @@ h4 {
 .blog-page-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--orange-background);
+  background-color: var(--orange);
   box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
   border-radius: 10px;
   padding: 1rem;
@@ -440,7 +440,7 @@ h4 {
 
 .navbar,
 .category-dropdown {
-  background-color: var(--orange-background);
+  background-color: var(--orange);
   position: absolute;
   display: none;
   top: 100px;
@@ -482,7 +482,7 @@ h4 {
 .nav-link:hover,
 .category-dropdown a:hover {
   background-color: white;
-  color: var(--orange-background);
+  color: var(--orange);
   text-decoration: none;
   cursor: pointer;
 }
@@ -494,7 +494,7 @@ h4 {
 
 .page-active {
   background-color: white;
-  color: var(--orange-background);
+  color: var(--orange);
   text-decoration: none;
 }
 
@@ -536,7 +536,7 @@ h4 {
   border: 1px solid black;
   padding: 1rem;
   border-radius: 10px;
-  background-color: var(--orange-background);
+  background-color: var(--orange);
   width: 90%;
   margin-bottom: 1rem;
 }
@@ -572,15 +572,15 @@ h4 {
   width: 60vw;
   height: 50px;
   padding: 1rem;
-  border: var(--border) var(--orange-background);
+  border: var(--border) var(--orange);
 }
 
 .searchbar-pos > button {
   text-decoration: none;
   color: white;
-  background-color: var(--orange-background);
+  background-color: var(--orange);
   padding: 0.7rem 1rem;
-  border: var(--border) var(--orange-background);
+  border: var(--border) var(--orange);
   height: 50px;
 }
 
@@ -1002,7 +1002,7 @@ h4 {
   .category-dropdown a {
     width: 100%;
     padding: 0.5rem;
-    background-color: var(--orange-background);
+    background-color: var(--orange);
   }
 
   .category-active {
