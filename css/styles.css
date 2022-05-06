@@ -206,24 +206,17 @@ h4 {
 
 .about-author {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
 }
 
-.author-grid0 {
-  grid-area: author-grid0;
+.author-image > .user-profile-image {
+  width: 100%;
 }
 
-.author-grid1 {
-  grid-area: author-grid1;
-}
-
-.author-grid2 {
-  grid-area: author-grid2;
-}
-
-.author-grid3 {
-  grid-area: author-grid3;
+.author-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .author-of {
