@@ -150,13 +150,6 @@ h4 {
   height: 30px;
 }
 
-.about-blog {
-  display: flex;
-  width: 90%;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .quick-link-containers {
   display: flex;
   flex-direction: column;
@@ -165,16 +158,24 @@ h4 {
   margin: 2rem 0;
 }
 
-.quick-link-content {
+.quick-link-content,
+.about-blog {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   background-color: var(--orange-background);
-  width: 100%;
   border-radius: 10px;
   align-items: center;
-  padding: 1rem 0;
+  gap: 1rem;
   box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+}
+
+.quick-link-content {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.about-blog {
+  width: 90%;
 }
 
 .footer-content {
@@ -302,6 +303,10 @@ h4 {
 .card-small-text p,
 .card-small-text h4 {
   font-size: 90%;
+}
+
+.card-small-text p {
+  font-weight: 100;
 }
 
 .card-small-text h4 {
@@ -877,10 +882,10 @@ h4 {
 
   .about-blog {
     display: grid;
-    width: 90%;
     grid-gap: 5rem;
     grid-template-areas: "about-grid1 about-grid2 about-grid2";
     margin: 2rem 0;
+    padding: 2rem;
   }
 
   .about-grid1 {
@@ -892,7 +897,7 @@ h4 {
   }
 
   .welcome-content {
-    gap: 3rem;
+    gap: 1rem;
     width: 70%;
   }
 
@@ -942,7 +947,7 @@ h4 {
   }
 
   .blog-page-content {
-    width: 70%;
+    width: 80%;
     margin: 2rem 0;
     grid-template-areas:
       "blog-grid1 blog-grid1 blog-grid3"

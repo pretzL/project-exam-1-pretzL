@@ -63,6 +63,8 @@ async function getRecipes() {
       }
       itemContainer.innerHTML += `<button class="btn blog-list-button blog-button${i}">View more</button>`;
 
+      // VIEW MORE
+
       const blogButton = document.querySelector(`.blog-button0`);
 
       blogButton.addEventListener("click", () => {
