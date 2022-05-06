@@ -9,9 +9,9 @@ if (id === null) {
   location.href = "/";
 }
 
-const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts/";
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/";
 
-const detailsURL = baseURL + id + "?_embed&acf_format=standard";
+const detailsURL = baseURL + "posts/" + id + "?_embed&acf_format=standard";
 
 const blogContent = document.querySelector(".blog-page-content");
 
@@ -26,6 +26,8 @@ async function fetchSingleRecipe() {
     const result = await response.json();
 
     blogContent.innerHTML = "";
+
+    console.log(result);
 
     pageTitle.innerText = result.title.rendered + " | Food For Thought";
     pageHeading.innerText = result.title.rendered;
@@ -55,12 +57,53 @@ async function fetchSingleRecipe() {
         <div class="blog-post-info">
             <p>Posted: ${dateFix}</p>
             <p>Categories: ${result._embedded["wp:term"]["0"]["0"].name}</p>
-            <p>Tags: ${result._embedded["wp:term"]["1"]["0"].name}, ${result._embedded["wp:term"]["1"]["1"].name}, ${result._embedded["wp:term"]["1"]["2"].name}</p>
+            <p>Tags: ${result._embedded["wp:term"]["1"]["0"].name}, ${result._embedded["wp:term"]["1"]["1"].name}</p>
         </div>
     </div>
     <div class="blog-page-card blog-similar blog-grid4">
         <h3>Similar Posts<h3>
+        <div class="blog-similar-content"></div>
     </div>`;
+
+    // SUGGESTED
+    let tag1;
+    let tag2;
+
+    for (let i = 0; i < result.tags.length; i++) {
+      tag1 = result.tags[0];
+      tag2 = result.tags[1];
+    }
+
+    const suggestedURL = baseURL + `posts?tags=${tag1},${tag2}` + "&_embed&acf_format=standard";
+
+    const suggestedContent = document.querySelector(".blog-similar-content");
+
+    suggestedContent.innerHTML = "";
+
+    const suggestedResponse = await fetch(suggestedURL);
+    const suggestedPosts = await suggestedResponse.json();
+
+    console.log(suggestedPosts);
+
+    for (let c = 0; c < suggestedPosts.length; c++) {
+      const date = suggestedPosts[c].date;
+      const dateFix = date.split("T")[0];
+
+      if (result.id === suggestedPosts[c].id) {
+        continue;
+      }
+
+      if (c === 5) {
+        break;
+      }
+
+      suggestedContent.innerHTML += `<a href="/blog.html?id=${suggestedPosts[c].id}" class="card-small">
+      <img src="${suggestedPosts[c].acf.banner_image}" class="card-image" alt="${suggestedPosts[c].title.rendered}"/>
+      <div class="card-small-text">
+      <h4>${suggestedPosts[c].title.rendered}</h4>
+      <p>${dateFix}</p>
+      </div></a>`;
+    }
 
     // MODAL
 

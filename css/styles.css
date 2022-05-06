@@ -294,8 +294,13 @@ h4 {
 }
 
 .card-small-text h3,
-.card-small-text p {
+.card-small-text p,
+.card-small-text h4 {
   font-size: 90%;
+}
+
+.card-small-text h4 {
+  margin: 0;
 }
 
 .blog-card {
@@ -413,6 +418,14 @@ h4 {
 .blog-list-button {
   align-self: end;
   justify-self: end;
+}
+
+.blog-similar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 /* NAVIGATION */
