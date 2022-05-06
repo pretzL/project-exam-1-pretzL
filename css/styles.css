@@ -176,6 +176,8 @@ h4 {
 
 .about-blog {
   width: 90%;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 .footer-content {
@@ -302,7 +304,7 @@ h4 {
 .card-small-text h3,
 .card-small-text p,
 .card-small-text h4 {
-  font-size: 90%;
+  font-size: 80%;
 }
 
 .card-small-text p {
