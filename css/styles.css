@@ -37,6 +37,10 @@ h5 {
   margin: 0;
 }
 
+img {
+  object-position: center;
+}
+
 /* VARIABLES */
 
 :root {
