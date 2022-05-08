@@ -27,8 +27,6 @@ async function fetchSingleRecipe() {
 
     blogContent.innerHTML = "";
 
-    console.log(result);
-
     pageTitle.innerText = result.title.rendered + " | Food For Thought";
     pageHeading.innerText = result.title.rendered;
     blogBanner.innerHTML = `<img src="${result.acf.banner_image}" alt="${result.title.rendered}" class="blog-page-banner-image open-modal" data-open="modal1" />`;
@@ -82,8 +80,6 @@ async function fetchSingleRecipe() {
 
     const suggestedResponse = await fetch(suggestedURL);
     const suggestedPosts = await suggestedResponse.json();
-
-    console.log(suggestedPosts);
 
     for (let c = 0; c < suggestedPosts.length; c++) {
       const date = suggestedPosts[c].date;
