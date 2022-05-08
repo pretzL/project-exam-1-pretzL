@@ -427,6 +427,14 @@ h4 {
   align-items: center;
 }
 
+.author-of-content {
+  display: grid;
+  padding: 1rem 0;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
 /* NAVIGATION */
 
 .navbar,
@@ -1066,5 +1074,9 @@ h4 {
 
   .blog-list-grid11 {
     grid-area: blog-list-grid11;
+  }
+
+  .author-of-content {
+    grid-template-columns: 1fr 1fr;
   }
 }
