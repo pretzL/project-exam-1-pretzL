@@ -9,8 +9,6 @@ async function getAuthorRecipes() {
     const response = await fetch(baseURL);
     const results = await response.json();
 
-    console.log(results);
-
     for (let i = 0; i < results.length; i++) {
       const date = results[i].date;
       const dateFix = date.split("T")[0];
