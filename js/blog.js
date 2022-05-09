@@ -13,7 +13,7 @@ const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/";
 
 const detailsURL = baseURL + "posts/" + id + "?_embed&acf_format=standard";
 
-const commentsURL = baseURL + "comments" + `?id=${id}` + "?_embed&acf_format=standard";
+const commentsURL = baseURL + "comments" + `?post=${id}` + "&_embed&acf_format=standard";
 
 const blogContent = document.querySelector(".blog-page-content");
 
@@ -26,8 +26,6 @@ async function fetchSingleRecipe() {
   try {
     const response = await fetch(detailsURL);
     const result = await response.json();
-
-    console.log(result);
 
     blogContent.innerHTML = "";
 
@@ -75,16 +73,23 @@ async function fetchSingleRecipe() {
     const commentsResponse = await fetch(commentsURL);
     const commentsResult = await commentsResponse.json();
 
-    console.log(commentsResult);
-
     commentsContainer.innerHTML = "";
 
-    for (let c = 0; c < commentsResult.length; c++) {
-      if (commentsResult.length === 0) {
-        commentsContainer.innerHTML = "No comments yet... Post your thoughts!";
-      }
+    if (commentsResult.length === 0) {
+      commentsContainer.innerHTML = `<div class="missing-comments">No comments yet... Post your thoughts!</div>`;
+    }
 
-      commentsContainer += ``;
+    for (let c = 0; c < commentsResult.length; c++) {
+      const date = commentsResult[c].date;
+      const dateFix = date.split("T")[0];
+      const timeFix = date.split("T")[1];
+
+      commentsContainer.innerHTML += `
+      <div class="blog-user-comment">
+      <h4 class="comment-grid1">${commentsResult[c].author_name}</h4>
+      <p class="user-comment-date comment-grid2">${dateFix}, ${timeFix}</p>
+      <p class="comment-grid3">${commentsResult[c].content.rendered}</p>
+      </div>`;
     }
 
     // SUGGESTED
@@ -194,7 +199,7 @@ function handleSubmit(evt) {
     emailError.style.display = "block";
   }
 
-  if (checkLength(message.value, 10)) {
+  if (checkLength(message.value, 9)) {
     messageError.style.display = "none";
   } else {
     messageError.style.display = "block";
