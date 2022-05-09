@@ -40,7 +40,8 @@ async function fetchSingleRecipe() {
         <p>${result.acf.description}</p>
     </div>
     <div class="blog-page-card blog-recipe blog-grid2">
-        <h3>Description</h3>
+        <h3>Recipe</h3>
+        <p class="blog-recipe-ingredients">${result.acf.ingredients}</p>
         <p>${result.acf.recipe}</p>
     </div>
     <div class="blog-page-card blog-about blog-grid3">

@@ -435,6 +435,10 @@ h4 {
   gap: 1rem;
 }
 
+.blog-recipe-ingredients {
+  margin-bottom: 1rem;
+}
+
 /* NAVIGATION */
 
 .navbar,
