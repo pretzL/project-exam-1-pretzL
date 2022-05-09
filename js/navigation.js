@@ -1,3 +1,5 @@
+// NAVBAR
+
 const label = document.querySelector(".menu-icon");
 const navbar = document.querySelector(".navbar");
 
@@ -15,6 +17,8 @@ searchIcon.addEventListener("click", () => {
   catDropdown.classList.remove("category-active");
   searchDropdown.classList.toggle("search-active");
 });
+
+// CATEGORY FETCH
 
 const catLabel = document.querySelector(".category-label");
 const catDropdown = document.querySelector(".category-dropdown");
@@ -37,7 +41,32 @@ async function getCategories() {
       if (results[i].name === "Uncategorized") {
         continue;
       }
-      catDropdown.innerHTML += `<a href="/blog-list.html?category=${results[i].id}" class="nav-link">${results[i].name}</a>`;
+
+      if (i === 1) {
+        catDropdown.innerHTML += `<div class="tag-dropdown"></div>`;
+      }
+      catDropdown.innerHTML += `<p class="nav-link category${i}">${results[i].name}</p>`;
+    }
+
+    // TAG FETCH
+
+    const tagLabel = document.querySelector(".category0");
+    const tagDropdown = document.querySelector(".tag-dropdown");
+
+    tagLabel.addEventListener("click", () => {
+      catDropdown.classList.toggle("category-active");
+      tagDropdown.classList.toggle("tag-active");
+    });
+
+    const tagURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/tags?_embed&acf_format=standard";
+
+    const tagResponse = await fetch(tagURL);
+    const tagResults = await tagResponse.json();
+
+    tagDropdown.innerHTML = "";
+
+    for (let c = 0; c < tagResults.length; c++) {
+      tagDropdown.innerHTML += `<a href="/blog-list.html?tag=${tagResults[c].id}" class="nav-link">${tagResults[c].name}</a>`;
     }
   } catch (error) {
     console.log(error);

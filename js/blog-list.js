@@ -8,7 +8,7 @@ const params = new URLSearchParams(queryString);
 
 const cat = params.get("category");
 
-const fullCategory = "/?categories=" + cat;
+const fullCategory = "?categories=" + cat;
 
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts";
 
@@ -16,6 +16,14 @@ let fullURL = baseURL + "?_embed&acf_format=standard&per_page=100";
 
 if (cat !== null) {
   fullURL = baseURL + fullCategory + "&_embed&acf_format=standard&per_page=20";
+}
+
+const tag = params.get("tag");
+
+const fullTag = "?tags=" + tag;
+
+if (tag !== null) {
+  fullURL = baseURL + fullTag + "&_embed&acf_format=standard&per_page=20";
 }
 
 async function getRecipes() {
