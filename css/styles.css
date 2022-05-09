@@ -317,7 +317,8 @@ h4 {
     "blog-grid1"
     "blog-grid2"
     "blog-grid3"
-    "blog-grid4";
+    "blog-grid4"
+    "blog-grid5";
 }
 
 .blog-grid1 {
@@ -336,6 +337,10 @@ h4 {
   grid-area: blog-grid4;
 }
 
+.blog-grid5 {
+  grid-area: blog-grid5;
+}
+
 .blog-page-card {
   display: flex;
   flex-direction: column;
@@ -345,7 +350,8 @@ h4 {
   padding: 1rem;
 }
 
-.blog-page-content h3 {
+.blog-page-content h3,
+.blog-comments h3 {
   margin: 1rem 0;
 }
 
@@ -437,6 +443,11 @@ h4 {
 
 .blog-recipe-ingredients {
   margin-bottom: 1rem;
+}
+
+.blog-comments {
+  width: 90%;
+  margin-bottom: 2rem;
 }
 
 /* NAVIGATION */
@@ -555,22 +566,27 @@ h4 {
   margin-bottom: 1rem;
 }
 
-.contact-form {
+.contact-form,
+.blog-comments-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   color: black;
-  border: 1px solid black;
   padding: 1rem;
-  border-radius: 10px;
   background-color: var(--orange);
   width: 90%;
+}
+
+.contact-form {
+  border: 1px solid black;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 
 .contact-form input,
-.message-input {
+.message-input,
+.blog-comments-form input {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;
@@ -970,7 +986,8 @@ h4 {
     margin: 2rem 0;
     grid-template-areas:
       "blog-grid1 blog-grid1 blog-grid3"
-      "blog-grid2 blog-grid2 blog-grid4";
+      "blog-grid2 blog-grid2 blog-grid4"
+      "blog-grid5 blog-grid5 blog-grid5";
   }
 
   .search-content {
@@ -1103,5 +1120,14 @@ h4 {
 
   .author-of-content {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-comments {
+    width: 80%;
+  }
+
+  .blog-comments-form {
+    width: 60%;
+    align-self: center;
   }
 }

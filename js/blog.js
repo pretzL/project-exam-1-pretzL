@@ -13,6 +13,8 @@ const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/";
 
 const detailsURL = baseURL + "posts/" + id + "?_embed&acf_format=standard";
 
+const commentsURL = baseURL + "comments" + `?id=${id}` + "?_embed&acf_format=standard";
+
 const blogContent = document.querySelector(".blog-page-content");
 
 const pageTitle = document.querySelector("title");
@@ -24,6 +26,8 @@ async function fetchSingleRecipe() {
   try {
     const response = await fetch(detailsURL);
     const result = await response.json();
+
+    console.log(result);
 
     blogContent.innerHTML = "";
 
@@ -63,6 +67,25 @@ async function fetchSingleRecipe() {
         <h3>Similar Posts<h3>
         <div class="blog-similar-content"></div>
     </div>`;
+
+    // COMMENTS
+
+    const commentsContainer = document.querySelector(".blog-comments-container");
+
+    const commentsResponse = await fetch(commentsURL);
+    const commentsResult = await commentsResponse.json();
+
+    console.log(commentsResult);
+
+    commentsContainer.innerHTML = "";
+
+    for (let c = 0; c < commentsResult.length; c++) {
+      if (commentsResult.length === 0) {
+        commentsContainer.innerHTML = "No comments yet... Post your thoughts!";
+      }
+
+      commentsContainer += ``;
+    }
 
     // SUGGESTED
     let tag1;
@@ -142,3 +165,86 @@ async function fetchSingleRecipe() {
 }
 
 fetchSingleRecipe();
+
+const form = document.querySelector(".blog-comments-form");
+
+const userName = document.querySelector("#user-name");
+const userNameError = document.querySelector("#user-name-error");
+
+const emailValue = document.querySelector("#email");
+const emailError = document.querySelector("#email-error");
+
+const message = document.querySelector("#message");
+const messageError = document.querySelector("#message-error");
+
+const validatorContainer = document.querySelector(".validator-container");
+
+function handleSubmit(evt) {
+  evt.preventDefault();
+
+  if (checkLength(userName.value, 4)) {
+    userNameError.style.display = "none";
+  } else {
+    userNameError.style.display = "block";
+  }
+
+  if (validateEmail(emailValue.value)) {
+    emailError.style.display = "none";
+  } else {
+    emailError.style.display = "block";
+  }
+
+  if (checkLength(message.value, 10)) {
+    messageError.style.display = "none";
+  } else {
+    messageError.style.display = "block";
+  }
+
+  // Form validated message
+  if (checkLength(userName.value, 4) && validateEmail(emailValue.value) && checkLength(message.value, 10)) {
+    validatorContainer.style.display = "block";
+  }
+
+  // Partially from https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api
+
+  const [postId, name, email, comment] = evt.target.elements;
+
+  postId.value = id;
+
+  const dataObj = JSON.stringify({
+    post: postId.value,
+    author_name: name.value,
+    author_email: email.value,
+    content: comment.value,
+  });
+
+  const commentURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/comments";
+  fetch(commentURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Basic " + btoa("commentuser" + ":" + "TrVl BnDa vF6W 9SxM ANpt oaPD"),
+    },
+    body: dataObj,
+  })
+    .then((response) => response.text())
+    .catch((error) => console.log("error", error));
+}
+
+form.addEventListener("submit", handleSubmit);
+
+function checkLength(value, char) {
+  return value.trim().length > char;
+}
+
+// Taken from video "Simple form validation" from Noroff JS1 Module 4 lesson 4.
+function validateEmail(email) {
+  const regEx = /\S+@\S+\.\S+/;
+  const patternMatches = regEx.test(email);
+  return patternMatches;
+}
+
+/* headers: {
+      Authorization: "Basic " + btoa("username" + ":" + "TrVl BnDa vF6W 9SxM ANpt oaPD"),
+    },
+    */

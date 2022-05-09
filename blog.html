@@ -61,6 +61,37 @@
           <div class="blog-page-content">
             <div style="grid-column: -1/1"><div class="loader"></div></div>
           </div>
+          <div class="blog-page-card blog-comments blog-grid5">
+            <h3>Comments</h3>
+            <div class="blog-comments-container"></div>
+            <h3>Leave a comment!</h3>
+            <div class="validator-container"><p>Comment posted!</p></div>
+            <form class="blog-comments-form">
+              <input type="hidden" id="postId" value="4532" />
+              <div class="form-input">
+                <label>
+                  Name (required)
+                  <input name="user-name" id="user-name" />
+                </label>
+                <div class="form-error" id="user-name-error">Please enter your name, must be 5 characters</div>
+              </div>
+              <div class="form-input">
+                <label>
+                  Email (required)
+                  <input type="email" name="email" id="email" />
+                  <div class="form-error" id="email-error">Please enter a valid email address</div>
+                </label>
+              </div>
+              <div class="form-input">
+                <label>
+                  Message (required)
+                  <textarea name="message" id="message" rows="5" class="message-input"></textarea>
+                  <div class="form-error" id="message-error">Your message must be at least 25 characters</div>
+                </label>
+              </div>
+              <button class="btn form-btn">Submit</button>
+            </form>
+          </div>
         </main>
         <footer>
           <div class="footer-content footer-first">
