@@ -683,6 +683,10 @@ h4 {
   gap: 1rem;
 }
 
+.tag-active {
+  width: 60%;
+}
+
 /* IMAGES */
 
 .header-image {
@@ -927,6 +931,14 @@ h4 {
   .carousel-container {
     --items-per-screen: 2;
   }
+
+  .previous-articles-list {
+    align-items: center;
+  }
+
+  .blog-list-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* DESKTOP */
@@ -1099,6 +1111,10 @@ h4 {
     display: flex;
   }
 
+  .tag-active {
+    width: 90%;
+  }
+
   .carousel-container {
     --items-per-screen: 4;
   }
@@ -1176,5 +1192,9 @@ h4 {
     align-self: center;
     gap: 3rem;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .previous-articles-list {
+    align-items: normal;
   }
 }
