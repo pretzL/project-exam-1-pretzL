@@ -123,7 +123,7 @@ async function fetchSingleRecipe() {
       }
 
       suggestedContent.innerHTML += `<a href="/blog.html?id=${suggestedPosts[c].id}" class="card-small">
-      <img src="${suggestedPosts[c].acf.banner_image}" class="card-image" alt="${suggestedPosts[c].title.rendered}"/>
+      <img src="${suggestedPosts[c].acf.card_image}" class="card-image" alt="${suggestedPosts[c].title.rendered}"/>
       <div class="card-small-text">
       <h4>${suggestedPosts[c].title.rendered}</h4>
       <p>${dateFix}</p>

@@ -22,7 +22,7 @@ async function getRecipes() {
       const dateFix = date.split("T")[0];
 
       carouselContainer.innerHTML += `<a href="/blog.html?id=${results[c].id}" class="card">
-        <img src="${results[c].acf.banner_image}" class="card-image" alt="${results[c].title.rendered}"/>
+        <img src="${results[c].acf.card_image}" class="card-image" alt="${results[c].title.rendered}"/>
         <h3>${results[c].title.rendered}</h3>
         <p>Posted: ${dateFix}</p>
         </a>`;
@@ -48,14 +48,14 @@ async function getRecipes() {
       }
 
       whatsNew.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card-small">
-      <img src="${results[i].acf.banner_image}" class="card-image" alt="${results[i].title.rendered}"/>
+      <img src="${results[i].acf.card_image}" class="card-image" alt="${results[i].title.rendered}"/>
       <div class="card-small-text">
       <h3>${results[i].title.rendered}</h3>
       <p>${dateFix}</p>
       </div></a>`;
 
       whatPeopleLove.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card-small">
-      <img src="${results[i].acf.banner_image}" class="card-image" alt="${results[i].title.rendered}"/>
+      <img src="${results[i].acf.card_image}" class="card-image" alt="${results[i].title.rendered}"/>
       <div class="card-small-text">
       <h3>${results[i].title.rendered}</h3>
       <p>${dateFix}</p>
