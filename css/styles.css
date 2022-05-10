@@ -1124,10 +1124,12 @@ h4 {
   }
 
   .blog-list-container {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "blog-list-grid1 blog-list-grid2 blog-list-grid3 blog-list-grid4 blog-list-grid5"
-      "blog-list-grid6 blog-list-grid7 blog-list-grid8 blog-list-grid9 blog-list-grid10"
-      "blog-list-grid0 blog-list-grid0 blog-list-grid0 blog-list-grid0 blog-list-grid11";
+      "blog-list-grid1 blog-list-grid2 blog-list-grid3 blog-list-grid4"
+      "blog-list-grid5 blog-list-grid6 blog-list-grid7 blog-list-grid8"
+      "blog-list-grid9 blog-list-grid10 blog-list-grid0 blog-list-grid11";
   }
 
   .blog-list-grid1 {
