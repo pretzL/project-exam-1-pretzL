@@ -1,21 +1,21 @@
 const form = document.querySelector(".contact-form");
 
-const userName = document.querySelector("#user-name");
-const userNameError = document.querySelector("#user-name-error");
+const userName = document.querySelector("#your-name");
+const userNameError = document.querySelector("#your-name-error");
 
-const email = document.querySelector("#email");
+const emailForm = document.querySelector("#your-email");
 const emailError = document.querySelector("#email-error");
 
-const subject = document.querySelector("#subject");
+const subjectForm = document.querySelector("#your-subject");
 const subjectError = document.querySelector("#subject-error");
 
-const message = document.querySelector("#message");
+const messageForm = document.querySelector("#your-message");
 const messageError = document.querySelector("#message-error");
 
 const validatorContainer = document.querySelector(".validator-container");
 
-function validateForm(form) {
-  form.preventDefault();
+function validateForm(evt) {
+  evt.preventDefault();
 
   if (checkLength(userName.value, 4)) {
     userNameError.style.display = "none";
@@ -23,28 +23,40 @@ function validateForm(form) {
     userNameError.style.display = "block";
   }
 
-  if (validateEmail(email.value)) {
+  if (validateEmail(emailForm.value)) {
     emailError.style.display = "none";
   } else {
     emailError.style.display = "block";
   }
 
-  if (checkLength(subject.value, 14)) {
+  if (checkLength(subjectForm.value, 14)) {
     subjectError.style.display = "none";
   } else {
     subjectError.style.display = "block";
   }
 
-  if (checkLength(message.value, 24)) {
+  if (checkLength(messageForm.value, 24)) {
     messageError.style.display = "none";
   } else {
     messageError.style.display = "block";
   }
 
   // Form validated message
-  if (checkLength(userName.value, 4) && validateEmail(email.value) && checkLength(subject.value, 14) && checkLength(message.value, 24)) {
+  if (checkLength(userName.value, 4) && validateEmail(emailForm.value) && checkLength(subjectForm.value, 14) && checkLength(messageForm.value, 24)) {
     validatorContainer.style.display = "block";
   }
+
+  const formElement = evt.target;
+
+  let dataObj = new FormData(formElement);
+
+  const contactURL = "https://pretzl.one/foodforthought/wp-json/contact-form-7/v1/contact-forms/181/feedback";
+  fetch(contactURL, {
+    method: "POST",
+    body: dataObj,
+  })
+    .then((response) => response.json())
+    .catch((error) => console.log("error", error));
 }
 
 form.addEventListener("submit", validateForm);

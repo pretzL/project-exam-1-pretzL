@@ -71,29 +71,41 @@
             <div class="form-input">
               <label>
                 Name (required)
-                <input name="user-name" id="user-name" />
+                <input name="your-name" id="your-name" />
               </label>
-              <div class="form-error" id="user-name-error">Please enter your name, must be 5 characters</div>
+              <div class="form-error" id="your-name-error">Please enter your name, must be 5 characters</div>
             </div>
             <div class="form-input">
               <label>
                 Email (required)
-                <input type="email" name="email" id="email" />
+                <input type="email" name="your-email" id="your-email" />
                 <div class="form-error" id="email-error">Please enter a valid email address</div>
               </label>
             </div>
             <div class="form-input">
               <label>
                 Subject (required)
-                <input name="subject" id="subject" />
+                <input name="your-subject" id="your-subject" />
                 <div class="form-error" id="subject-error">Your subject must be at least 15 characters</div>
               </label>
             </div>
             <div class="form-input">
               <label>
                 Message (required)
-                <textarea name="message" id="message" rows="5" class="message-input"></textarea>
+                <textarea name="your-message" id="your-message" rows="5" class="message-input"></textarea>
                 <div class="form-error" id="message-error">Your message must be at least 25 characters</div>
+              </label>
+            </div>
+            <div class="form-input">
+              <label>
+                Do you accept terms? (required)
+                <div class="terms-radio">
+                  <label for="terms-no" class="radio1">No</label>
+                  <input type="radio" name="drone" id="terms-no" value="0" class="radio3" />
+                  <label for="terms-yes" class="radio2">Yes</label>
+                  <input type="radio" name="drone" id="terms-yes" value="1" class="radio4" />
+                </div>
+                <div class="form-error" id="terms-error">Please select an option</div>
               </label>
             </div>
             <button class="btn form-btn">Submit</button>
