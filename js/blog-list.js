@@ -15,7 +15,7 @@ const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts";
 let fullURL = baseURL + "?_embed&acf_format=standard&per_page=100";
 
 if (cat !== null) {
-  fullURL = baseURL + fullCategory + "&_embed&acf_format=standard&per_page=20";
+  fullURL = baseURL + fullCategory + "&_embed&acf_format=standard&per_page=100";
 }
 
 const tag = params.get("tag");
@@ -23,7 +23,7 @@ const tag = params.get("tag");
 const fullTag = "?tags=" + tag;
 
 if (tag !== null) {
-  fullURL = baseURL + fullTag + "&_embed&acf_format=standard&per_page=20";
+  fullURL = baseURL + fullTag + "&_embed&acf_format=standard&per_page=100";
 }
 
 async function getRecipes() {

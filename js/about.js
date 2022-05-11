@@ -2,7 +2,7 @@ const authorOfContent = document.querySelector(".author-of-content");
 
 // FETCH
 
-const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?author=1&_embed&acf_format=standard&per_page=20";
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?author=1&_embed&acf_format=standard&per_page=100";
 
 async function getAuthorRecipes() {
   try {

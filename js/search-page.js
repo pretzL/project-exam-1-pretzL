@@ -14,7 +14,7 @@ async function getSearch() {
     searchContainer.innerHTML = "";
     errorContainer.innerHTML = "";
 
-    const url = baseURL + "?search=" + search + "&acf_format=standard&context=embed&_embed";
+    const url = baseURL + "?search=" + search + "&acf_format=standard&context=embed&_embed&per_page=20";
 
     const response = await fetch(url);
     const results = await response.json();
