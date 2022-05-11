@@ -791,7 +791,7 @@ h4 {
   z-index: 9999;
 }
 
-.modal.is-visible {
+.modal.modal-active {
   visibility: visible;
   opacity: 1;
 }

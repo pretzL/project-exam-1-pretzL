@@ -10,24 +10,24 @@ for (const modal of openModal) {
     const stringContent = modal.outerHTML;
     modalContent.innerHTML = stringContent;
     modalText.innerHTML = modal.alt;
-    document.getElementById(modalId).classList.add("is-visible");
+    document.getElementById(modalId).classList.add("modal-active");
   });
 }
 
 const closeModal = document.querySelector(".close-modal");
 
 closeModal.addEventListener("click", function () {
-  this.parentElement.parentElement.classList.remove("is-visible");
+  this.parentElement.parentElement.classList.remove("modal-active");
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target === document.querySelector(".modal.is-visible")) {
-    document.querySelector(".modal.is-visible").classList.remove("is-visible");
+  if (e.target === document.querySelector(".modal.modal-active")) {
+    document.querySelector(".modal.modal-active").classList.remove("modal-active");
   }
 });
 
 document.addEventListener("keyup", (e) => {
-  if (e.key === "Escape" && document.querySelector(".modal.is-visible")) {
-    document.querySelector(".modal.is-visible").classList.remove("is-visible");
+  if (e.key === "Escape" && document.querySelector(".modal.modal-active")) {
+    document.querySelector(".modal.modal-active").classList.remove("modal-active");
   }
 });
