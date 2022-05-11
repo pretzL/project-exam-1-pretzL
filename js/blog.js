@@ -248,8 +248,3 @@ function validateEmail(email) {
   const patternMatches = regEx.test(email);
   return patternMatches;
 }
-
-/* headers: {
-      Authorization: "Basic " + btoa("username" + ":" + "TrVl BnDa vF6W 9SxM ANpt oaPD"),
-    },
-    */
