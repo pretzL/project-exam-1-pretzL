@@ -1083,9 +1083,17 @@ h4 {
   }
 
   .nav-link:hover {
-    background-color: none;
-    color: none;
+    background-color: transparent;
+    color: var(--orange);
     text-decoration: none;
+  }
+
+  .page-active {
+    color: var(--orange);
+  }
+
+  .page-active:hover {
+    color: black;
   }
 
   .category-dropdown {
