@@ -81,10 +81,10 @@ async function getRecipes() {
         blogButton = e.target.closest(".blog-button");
       }
 
-      if (e.target.innerHTML === "View more") {
-        e.target.innerHTML = "View less";
+      if (blogButton.innerHTML === "View more") {
+        blogButton.innerHTML = "View less";
       } else {
-        e.target.innerHTML = "View more";
+        blogButton.innerHTML = "View more";
       }
 
       e.target.parentElement.nextElementSibling.classList.toggle("blog-hidden");
