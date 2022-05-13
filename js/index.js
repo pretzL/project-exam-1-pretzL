@@ -8,6 +8,8 @@ const whatPeopleLove = document.querySelector(".what-people-love-list");
 
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed&acf_format=standard&per_page=20";
 
+const popURL = "https://pretzl.one/foodforthought/wp-json/wordpress-popular-posts/v1/popular-posts?order_by=comments&range=all&limit=5";
+
 async function getRecipes() {
   try {
     const response = await fetch(baseURL);
@@ -53,11 +55,21 @@ async function getRecipes() {
       <h3>${results[i].title.rendered}</h3>
       <p>${dateFix}</p>
       </div></a>`;
+    }
 
-      whatPeopleLove.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card-small">
-      <img src="${results[i].acf.card_image}" class="card-image" alt="${results[i].title.rendered}"/>
+    const popResponse = await fetch(popURL);
+    const popResults = await popResponse.json();
+
+    console.log(popResults);
+
+    for (let v = 0; v < popResults.length; v++) {
+      const date = results[v].date;
+      const dateFix = date.split("T")[0];
+
+      whatPeopleLove.innerHTML += `<a href="/blog.html?id=${results[v].id}" class="card-small">
+      <img src="${results[v].acf.card_image}" class="card-image" alt="${results[v].title.rendered}"/>
       <div class="card-small-text">
-      <h3>${results[i].title.rendered}</h3>
+      <h3>${results[v].title.rendered}</h3>
       <p>${dateFix}</p>
       </div></a>`;
     }
