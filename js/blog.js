@@ -88,8 +88,14 @@ async function fetchSingleRecipe() {
       <div class="blog-user-comment">
       <h4 class="comment-grid1">${commentsResult[c].author_name}</h4>
       <p class="user-comment-date comment-grid2">${dateFix}, ${timeFix}</p>
-      <p class="comment-grid3">${commentsResult[c].content.rendered}</p>
+      ${commentsResult[c].content.rendered}
       </div>`;
+
+      const userComment = document.querySelectorAll(".blog-user-comment");
+
+      userComment.forEach((comment) => {
+        comment.firstElementChild.nextElementSibling.nextElementSibling.classList.add("comment-grid3");
+      });
     }
 
     // SUGGESTED

@@ -458,6 +458,7 @@ h4 {
 
 .blog-user-comment {
   display: grid;
+  gap: 0.5rem;
   grid-template-areas:
     "comment-grid1 comment-grid2"
     "comment-grid3 comment-grid3";
@@ -483,7 +484,7 @@ h4 {
 }
 
 .user-comment-date {
-  font-size: 0.8rem;
+  font-size: 60%;
 }
 
 .missing-comments {
