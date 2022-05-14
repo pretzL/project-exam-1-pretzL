@@ -55,7 +55,7 @@ async function getRecipes() {
       </div></a>`;
     }
 
-    // RANDOM POST ELEMENT
+    // RANDOM POST ELEMENT, FROM https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
 
     const randomContainer = document.querySelector(".random-element-container");
 

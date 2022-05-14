@@ -492,7 +492,7 @@ h4 {
 }
 
 .random-element-container .card {
-  height: auto;
+  height: 300px;
 }
 
 /* NAVIGATION */
@@ -974,7 +974,8 @@ h4 {
 
   .about-blog {
     display: grid;
-    grid-gap: 5rem;
+    gap: 2rem;
+    justify-items: center;
     grid-template-areas: "about-grid1 about-grid2 about-grid2";
     margin: 2rem 0;
     padding: 2rem;
