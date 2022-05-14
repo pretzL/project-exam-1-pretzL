@@ -61,8 +61,6 @@ async function getRecipes() {
 
     const randomElement = Math.floor(Math.random() * results.length);
 
-    console.log(results[randomElement]);
-
     const date = results[randomElement].date;
     const dateFix = date.split("T")[0];
 
@@ -76,15 +74,24 @@ async function getRecipes() {
 
     let popPosts = [...results];
 
-    console.log(popPosts[1]._embedded.replies[0].length);
+    // Solution for top sorting from https://codereview.stackexchange.com/questions/176809/sorting-an-array-of-objects-by-a-property-which-may-be-missing
 
-    // Solution for top sorting from Abi
-    const sortedResults = results.sort(function (a, b) {
-      return parseFloat(b._embedded.replies[0].length) - parseFloat(a._embedded.replies[0].length);
-    });
+    function sort(array) {
+      return array.sort((a, b) => {
+        const aUndefined = a._embedded.replies == null ? 1 : 0;
+        const bUndefined = b._embedded.replies == null ? 1 : 0;
+
+        if (aUndefined || bUndefined) {
+          return aUndefined - bUndefined;
+        }
+
+        return b._embedded.replies[0].length - a._embedded.replies[0].length;
+      });
+    }
+
+    const sortedResults = sort(results);
+
     popPosts = [...sortedResults];
-
-    console.log(sortedResults);
 
     for (let v = 0; v < popPosts.length; v++) {
       const date = popPosts[v].date;
