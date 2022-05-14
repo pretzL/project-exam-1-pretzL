@@ -22,7 +22,7 @@ async function getRecipes() {
       const dateFix = date.split("T")[0];
 
       carouselContainer.innerHTML += `<a href="/blog.html?id=${results[c].id}" class="card">
-        <img src="${results[c].acf.card_image}" class="card-image" alt="${results[c].title.rendered}"/>
+        <div class="card-image" style="background-image: url(${results[c].acf.card_image})"></div>
         <h3>${results[c].title.rendered}</h3>
         <p>Posted: ${dateFix}</p>
         </a>`;
@@ -48,7 +48,7 @@ async function getRecipes() {
       }
 
       whatsNew.innerHTML += `<a href="/blog.html?id=${results[i].id}" class="card-small">
-      <img src="${results[i].acf.card_image}" class="card-image" alt="${results[i].title.rendered}"/>
+      <div class="card-image" style="background-image: url(${results[i].acf.card_image})"></div>
       <div class="card-small-text">
       <h3>${results[i].title.rendered}</h3>
       <p>${dateFix}</p>
@@ -65,7 +65,7 @@ async function getRecipes() {
     const dateFix = date.split("T")[0];
 
     randomContainer.innerHTML = `<a href="/blog.html?id=${results[randomElement].id}" class="card">
-    <img src="${results[randomElement].acf.card_image}" class="card-image" alt="${results[randomElement].title.rendered}"/>
+    <div class="card-image" style="background-image: url(${results[randomElement].acf.card_image})"></div>
     <h3>${results[randomElement].title.rendered}</h3>
     <p>Posted: ${dateFix}</p>
     </a>`;

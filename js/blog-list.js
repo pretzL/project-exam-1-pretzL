@@ -64,7 +64,7 @@ async function getRecipes() {
         const gridClass = "blog-list-grid" + (c + 1);
 
         itemContainer.innerHTML += `<a href="/blog.html?id=${items[c].id}" class="card blog-card ${gridClass}">
-              <img src="${items[c].acf.card_image}" class="card-image" alt="${items[c].title.rendered}"/>
+              <div class="card-image" style="background-image: url(${items[c].acf.card_image})"></div>
               <h3>${items[c].title.rendered}</h3>
               <p>Posted: ${dateFix}</p>
               </a>`;

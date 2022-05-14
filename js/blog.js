@@ -31,7 +31,7 @@ async function fetchSingleRecipe() {
 
     pageTitle.innerText = result.title.rendered + " | Food For Thought";
     pageHeading.innerText = result.title.rendered;
-    blogBanner.innerHTML = `<img src="${result.acf.banner_image}" alt="${result.title.rendered}" class="blog-page-banner-image open-modal" data-open="modal1" />`;
+    blogBanner.innerHTML = `<div class="blog-page-banner-image open-modal" data-open="modal1" style="background-image: url(${result.acf.banner_image})"></div>`;
 
     const date = result.date;
     const dateFix = date.split("T")[0];
@@ -129,7 +129,7 @@ async function fetchSingleRecipe() {
       }
 
       suggestedContent.innerHTML += `<a href="/blog.html?id=${suggestedPosts[c].id}" class="card-small">
-      <img src="${suggestedPosts[c].acf.card_image}" class="card-image" alt="${suggestedPosts[c].title.rendered}"/>
+      <div class="card-image" style="background-image: url(${suggestedPosts[c].acf.card_image})"></div>
       <div class="card-small-text">
       <h4>${suggestedPosts[c].title.rendered}</h4>
       <p>${dateFix}</p>
@@ -147,7 +147,7 @@ async function fetchSingleRecipe() {
         const modalId = this.dataset.open;
         const stringContent = modal.outerHTML;
         modalContent.innerHTML = stringContent;
-        modalText.innerHTML = modal.alt;
+        modalText.innerHTML = result.title.rendered;
         document.getElementById(modalId).classList.add("modal-active");
       });
     }
