@@ -492,6 +492,7 @@ h4 {
 }
 
 .random-element-container .card {
+  display: block;
   height: 300px;
 }
 
