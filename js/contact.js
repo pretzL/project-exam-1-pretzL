@@ -17,7 +17,7 @@ const validatorContainer = document.querySelector(".validator-container");
 function validateForm(evt) {
   evt.preventDefault();
 
-  if (checkLength(userName.value, 4)) {
+  if (checkLength(userName.value, 5)) {
     userNameError.style.display = "none";
   } else {
     userNameError.style.display = "block";
@@ -29,20 +29,20 @@ function validateForm(evt) {
     emailError.style.display = "block";
   }
 
-  if (checkLength(subjectForm.value, 14)) {
+  if (checkLength(subjectForm.value, 15)) {
     subjectError.style.display = "none";
   } else {
     subjectError.style.display = "block";
   }
 
-  if (checkLength(messageForm.value, 24)) {
+  if (checkLength(messageForm.value, 25)) {
     messageError.style.display = "none";
   } else {
     messageError.style.display = "block";
   }
 
   // Form validated message
-  if (checkLength(userName.value, 4) && validateEmail(emailForm.value) && checkLength(subjectForm.value, 14) && checkLength(messageForm.value, 24)) {
+  if (checkLength(userName.value, 5) && validateEmail(emailForm.value) && checkLength(subjectForm.value, 15) && checkLength(messageForm.value, 25)) {
     validatorContainer.style.display = "block";
   }
 

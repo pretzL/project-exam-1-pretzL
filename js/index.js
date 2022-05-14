@@ -8,8 +8,6 @@ const whatPeopleLove = document.querySelector(".what-people-love-list");
 
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts?_embed&acf_format=standard&per_page=20";
 
-const popURL = "https://pretzl.one/foodforthought/wp-json/wordpress-popular-posts/v1/popular-posts?order_by=comments&range=all&limit=5";
-
 async function getRecipes() {
   try {
     const response = await fetch(baseURL);
@@ -57,19 +55,49 @@ async function getRecipes() {
       </div></a>`;
     }
 
-    const popResponse = await fetch(popURL);
-    const popResults = await popResponse.json();
+    // RANDOM POST ELEMENT
 
-    console.log(popResults);
+    const randomContainer = document.querySelector(".random-element-container");
 
-    for (let v = 0; v < popResults.length; v++) {
-      const date = results[v].date;
+    const randomElement = Math.floor(Math.random() * results.length);
+
+    console.log(results[randomElement]);
+
+    const date = results[randomElement].date;
+    const dateFix = date.split("T")[0];
+
+    randomContainer.innerHTML = `<a href="/blog.html?id=${results[randomElement].id}" class="card">
+    <img src="${results[randomElement].acf.card_image}" class="card-image" alt="${results[randomElement].title.rendered}"/>
+    <h3>${results[randomElement].title.rendered}</h3>
+    <p>Posted: ${dateFix}</p>
+    </a>`;
+
+    // POPULAR POSTS, SORTED BY MOST COMMENTS
+
+    let popPosts = [...results];
+
+    console.log(popPosts[1]._embedded.replies[0].length);
+
+    // Solution for top sorting from Abi
+    const sortedResults = results.sort(function (a, b) {
+      return parseFloat(b._embedded.replies[0].length) - parseFloat(a._embedded.replies[0].length);
+    });
+    popPosts = [...sortedResults];
+
+    console.log(sortedResults);
+
+    for (let v = 0; v < popPosts.length; v++) {
+      const date = popPosts[v].date;
       const dateFix = date.split("T")[0];
 
-      whatPeopleLove.innerHTML += `<a href="/blog.html?id=${results[v].id}" class="card-small">
-      <img src="${results[v].acf.card_image}" class="card-image" alt="${results[v].title.rendered}"/>
+      if (v === 5) {
+        break;
+      }
+
+      whatPeopleLove.innerHTML += `<a href="/blog.html?id=${popPosts[v].id}" class="card-small">
+      <img src="${popPosts[v].acf.card_image}" class="card-image" alt="${popPosts[v].title.rendered}"/>
       <div class="card-small-text">
-      <h3>${results[v].title.rendered}</h3>
+      <h3>${popPosts[v].title.rendered}</h3>
       <p>${dateFix}</p>
       </div></a>`;
     }
