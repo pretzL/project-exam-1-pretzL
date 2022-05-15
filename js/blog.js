@@ -136,7 +136,7 @@ async function fetchSingleRecipe() {
       </div></a>`;
     }
 
-    // MODAL
+    // MODAL FROM https://webdesign.tutsplus.com/tutorials/how-to-build-flexible-modal-dialogs-with-html-css-and-javascript--cms-33500
 
     const openModal = document.querySelectorAll("[data-open]");
     const modalContent = document.querySelector(".modal-content");
@@ -147,7 +147,11 @@ async function fetchSingleRecipe() {
         const modalId = this.dataset.open;
         const stringContent = modal.outerHTML;
         modalContent.innerHTML = stringContent;
-        modalText.innerHTML = result.title.rendered;
+        if (modal.alt !== undefined) {
+          modalText.innerHTML = modal.alt;
+        } else {
+          modalText.innerHTML = result.title.rendered;
+        }
         document.getElementById(modalId).classList.add("modal-active");
       });
     }
