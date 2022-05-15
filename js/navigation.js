@@ -35,6 +35,8 @@ async function getCategories() {
     const response = await fetch(catURL);
     const results = await response.json();
 
+    console.log(results);
+
     catDropdown.innerHTML = "";
 
     for (let i = 0; i < results.length; i++) {
@@ -45,7 +47,16 @@ async function getCategories() {
       if (i === 1) {
         catDropdown.innerHTML += `<div class="tag-dropdown"></div>`;
       }
-      catDropdown.innerHTML += `<p class="nav-link category${i}">${results[i].name}</p>`;
+      catDropdown.innerHTML += `<p class="nav-link category-button category${i}">${results[i].name}</p>`;
+
+      const catButton = document.querySelectorAll(".category-button");
+      catButton.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.innerHTML !== "Recipes") {
+            location.href = `/blog-list.html?category=${results[i].id}`;
+          }
+        });
+      });
     }
 
     // TAG FETCH

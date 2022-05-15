@@ -875,7 +875,7 @@ h4 {
   flex: 0 0 calc(100% / var(--items-per-screen));
   max-width: calc(100% / var(--items-per-screen));
   aspect-ratio: 16 / 9;
-  padding: var(--card-gap);
+  padding: var(--card-gap) var(--card-gap) 1rem var(--card-gap);
 }
 
 .arrow {

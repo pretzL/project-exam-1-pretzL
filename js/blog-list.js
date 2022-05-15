@@ -37,39 +37,41 @@ async function getRecipes() {
       errorContainer.innerHTML = `There are no blogs in this category yet...`;
     }
 
-    const grid = results.reduce(
-      (prev, val, idx) => {
-        if (idx % 10 === 0 && idx !== 0) prev.push([]);
-        prev[prev.length - 1].push(val);
-        return prev;
-      },
-      [[]]
-    );
+    if (results.length > 0) {
+      const grid = results.reduce(
+        (prev, val, idx) => {
+          if (idx % 10 === 0 && idx !== 0) prev.push([]);
+          prev[prev.length - 1].push(val);
+          return prev;
+        },
+        [[]]
+      );
 
-    for (let i = 0; i < grid.length; i++) {
-      blogList.innerHTML += `<div class="blog-list-container container${i}"></div>`;
+      for (let i = 0; i < grid.length; i++) {
+        blogList.innerHTML += `<div class="blog-list-container container${i}"></div>`;
 
-      const itemContainer = document.querySelector(`.container${i}`);
+        const itemContainer = document.querySelector(`.container${i}`);
 
-      if (i > 0) {
-        itemContainer.classList.add("blog-hidden");
+        if (i > 0) {
+          itemContainer.classList.add("blog-hidden");
+        }
+
+        const items = grid[i];
+
+        for (let c = 0; c < items.length; c++) {
+          const date = items[c].date;
+          const dateFix = date.split("T")[0];
+
+          const gridClass = "blog-list-grid" + (c + 1);
+
+          itemContainer.innerHTML += `<a href="/blog.html?id=${items[c].id}" class="card blog-card ${gridClass}">
+                <div class="card-image" style="background-image: url(${items[c].acf.card_image})"></div>
+                <h3>${items[c].title.rendered}</h3>
+                <p>Posted: ${dateFix}</p>
+                </a>`;
+        }
+        itemContainer.innerHTML += `<button class="btn blog-list-button blog-button blog-list-grid11">View more</button>`;
       }
-
-      const items = grid[i];
-
-      for (let c = 0; c < items.length; c++) {
-        const date = items[c].date;
-        const dateFix = date.split("T")[0];
-
-        const gridClass = "blog-list-grid" + (c + 1);
-
-        itemContainer.innerHTML += `<a href="/blog.html?id=${items[c].id}" class="card blog-card ${gridClass}">
-              <div class="card-image" style="background-image: url(${items[c].acf.card_image})"></div>
-              <h3>${items[c].title.rendered}</h3>
-              <p>Posted: ${dateFix}</p>
-              </a>`;
-      }
-      itemContainer.innerHTML += `<button class="btn blog-list-button blog-button blog-list-grid11">View more</button>`;
     }
     // VIEW MORE
 
