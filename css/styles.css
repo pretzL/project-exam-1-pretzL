@@ -44,6 +44,7 @@ h5 {
   --green: #4d8057;
   --dark-grey: #464343;
   --light-grey: #e5e5e5;
+  --orange-text-contrast: #917140;
   --text-normal: 1rem;
   --text-h1: 2rem;
   --border: 1px solid;
@@ -566,7 +567,7 @@ h4 {
 .category-dropdown p:hover,
 .tag-dropdown a:hover {
   background-color: white;
-  color: var(--orange);
+  color: var(--orange-text-contrast);
   text-decoration: none;
   cursor: pointer;
 }
@@ -578,7 +579,7 @@ h4 {
 
 .page-active {
   background-color: white;
-  color: var(--orange);
+  color: var(--orange-text-contrast);
   text-decoration: none;
 }
 
@@ -1089,12 +1090,12 @@ h4 {
 
   .nav-link:hover {
     background-color: transparent;
-    color: var(--orange);
+    color: var(--orange-text-contrast);
     text-decoration: none;
   }
 
   .page-active {
-    color: var(--orange);
+    color: var(--orange-text-contrast);
   }
 
   .page-active:hover {
