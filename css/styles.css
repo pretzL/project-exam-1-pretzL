@@ -1214,4 +1214,8 @@ h4 {
   .previous-articles-list {
     align-items: normal;
   }
+
+  .author-of {
+    margin: 1rem 0 3rem 0;
+  }
 }
