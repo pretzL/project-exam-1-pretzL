@@ -629,6 +629,7 @@ h4 {
 .contact-form input,
 .message-input,
 .blog-comments-form input {
+  font-family: "Commissioner", sans-serif;
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;
