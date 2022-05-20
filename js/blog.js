@@ -218,32 +218,32 @@ function handleSubmit(evt) {
   // Form validated message
   if (checkLength(userName.value, 4) && validateEmail(emailValue.value) && checkLength(message.value, 10)) {
     validatorContainer.style.display = "block";
+
+    // Partially from https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api
+
+    const [postId, name, email, comment] = evt.target.elements;
+
+    postId.value = id;
+
+    const dataObj = JSON.stringify({
+      post: postId.value,
+      author_name: name.value,
+      author_email: email.value,
+      content: comment.value,
+    });
+
+    const commentURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/comments";
+    fetch(commentURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic " + btoa("commentuser" + ":" + "TrVl BnDa vF6W 9SxM ANpt oaPD"),
+      },
+      body: dataObj,
+    })
+      .then((response) => response.text())
+      .catch((error) => console.log("error", error));
   }
-
-  // Partially from https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api
-
-  const [postId, name, email, comment] = evt.target.elements;
-
-  postId.value = id;
-
-  const dataObj = JSON.stringify({
-    post: postId.value,
-    author_name: name.value,
-    author_email: email.value,
-    content: comment.value,
-  });
-
-  const commentURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/comments";
-  fetch(commentURL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Basic " + btoa("commentuser" + ":" + "TrVl BnDa vF6W 9SxM ANpt oaPD"),
-    },
-    body: dataObj,
-  })
-    .then((response) => response.text())
-    .catch((error) => console.log("error", error));
 }
 
 form.addEventListener("submit", handleSubmit);
