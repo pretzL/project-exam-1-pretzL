@@ -36,7 +36,7 @@ async function getRecipes() {
         break;
       }
 
-      previousArticles.innerHTML += `<a href="/blog.html?id=${results[a].id}" class="previous-articles-link">${results[a].title.rendered}, ${dateFix}</a>`;
+      previousArticles.innerHTML += `<li><a href="/blog.html?id=${results[a].id}" class="previous-articles-link">${results[a].title.rendered}, ${dateFix}</a></li>`;
     }
 
     for (let i = 0; i < results.length; i++) {
@@ -102,7 +102,7 @@ async function getRecipes() {
       }
 
       whatPeopleLove.innerHTML += `<a href="/blog.html?id=${popPosts[v].id}" class="card-small">
-      <img src="${popPosts[v].acf.card_image}" class="card-image" alt="${popPosts[v].title.rendered}"/>
+      <div class="card-image" style="background-image: url(${popPosts[v].acf.card_image})"></div>
       <div class="card-small-text">
       <h3>${popPosts[v].title.rendered}</h3>
       <p>${dateFix}</p>

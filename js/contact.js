@@ -44,19 +44,19 @@ function validateForm(evt) {
   // Form validated message
   if (checkLength(userName.value, 5) && validateEmail(emailForm.value) && checkLength(subjectForm.value, 15) && checkLength(messageForm.value, 25)) {
     validatorContainer.style.display = "block";
+
+    const formElement = evt.target;
+
+    let dataObj = new FormData(formElement);
+
+    const contactURL = "https://pretzl.one/foodforthought/wp-json/contact-form-7/v1/contact-forms/181/feedback";
+    fetch(contactURL, {
+      method: "POST",
+      body: dataObj,
+    })
+      .then((response) => response.json())
+      .catch((error) => console.log("error", error));
   }
-
-  const formElement = evt.target;
-
-  let dataObj = new FormData(formElement);
-
-  const contactURL = "https://pretzl.one/foodforthought/wp-json/contact-form-7/v1/contact-forms/181/feedback";
-  fetch(contactURL, {
-    method: "POST",
-    body: dataObj,
-  })
-    .then((response) => response.json())
-    .catch((error) => console.log("error", error));
 }
 
 form.addEventListener("submit", validateForm);
