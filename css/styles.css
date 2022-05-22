@@ -871,10 +871,11 @@ h4 {
 }
 
 .carousel-container > .card {
-  flex: 0 0 calc(100% / var(--items-per-screen));
+  flex: 0 0 calc(100% / var(--items-per-screen) - 2rem);
   max-width: calc(100% / var(--items-per-screen));
   aspect-ratio: 16 / 9;
   padding: var(--card-gap) var(--card-gap) 1rem var(--card-gap);
+  margin-right: 2rem;
 }
 
 .arrow {
