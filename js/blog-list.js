@@ -70,7 +70,11 @@ async function getRecipes() {
                 <p>Posted: ${dateFix}</p>
                 </a>`;
         }
-        itemContainer.innerHTML += `<button class="btn blog-list-button blog-button blog-list-grid11">View more</button>`;
+
+        // ONLY ADD BUTTON IF ARRAY IS FULL
+        if (items.length === 10) {
+          itemContainer.innerHTML += `<button class="btn blog-list-button blog-button blog-list-grid11">View more</button>`;
+        }
       }
     }
     // VIEW MORE

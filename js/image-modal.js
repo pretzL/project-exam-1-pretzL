@@ -4,7 +4,7 @@ const openModal = document.querySelectorAll("[data-open]");
 const modalContent = document.querySelector(".modal-content");
 const modalText = document.querySelector(".modal-text");
 
-for (const modal of openModal) {
+openModal.forEach((modal) => {
   modal.addEventListener("click", function () {
     const modalId = this.dataset.open;
     const stringContent = modal.outerHTML;
@@ -12,7 +12,7 @@ for (const modal of openModal) {
     modalText.innerHTML = modal.alt;
     document.getElementById(modalId).classList.add("modal-active");
   });
-}
+});
 
 const closeModal = document.querySelector(".close-modal");
 

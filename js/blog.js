@@ -142,7 +142,7 @@ async function fetchSingleRecipe() {
     const modalContent = document.querySelector(".modal-content");
     const modalText = document.querySelector(".modal-text");
 
-    for (const modal of openModal) {
+    openModal.forEach((modal) => {
       modal.addEventListener("click", function () {
         const modalId = this.dataset.open;
         const stringContent = modal.outerHTML;
@@ -154,7 +154,7 @@ async function fetchSingleRecipe() {
         }
         document.getElementById(modalId).classList.add("modal-active");
       });
-    }
+    });
 
     const closeModal = document.querySelector(".close-modal");
 
