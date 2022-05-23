@@ -37,6 +37,8 @@ async function getRecipes() {
       errorContainer.innerHTML = `There are no blogs in this category yet...`;
     }
 
+    // PARTIALLY FROM https://www.javascripttutorial.net/javascript-array-reduce/ , PARTIALLY FROM https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
     if (results.length > 0) {
       const grid = results.reduce(
         (prev, val, idx) => {
