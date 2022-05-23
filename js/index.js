@@ -25,6 +25,7 @@ async function getRecipes() {
         <div class="card-image" style="background-image: url(${results[c].acf.card_image})"></div>
         <h3>${results[c].title.rendered}</h3>
         <p>Posted: ${dateFix}</p>
+        <p>Category: ${results[c]._embedded["wp:term"]["0"]["0"].name}</p>
         </a>`;
     }
 
@@ -68,6 +69,7 @@ async function getRecipes() {
     <div class="card-image" style="background-image: url(${results[randomElement].acf.card_image})"></div>
     <h3>${results[randomElement].title.rendered}</h3>
     <p>Posted: ${dateFix}</p>
+    <p>Category: ${results[randomElement]._embedded["wp:term"]["0"]["0"].name}</p>
     </a>`;
 
     // POPULAR POSTS, SORTED BY MOST COMMENTS

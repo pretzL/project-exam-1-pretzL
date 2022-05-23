@@ -70,6 +70,7 @@ async function getRecipes() {
                 <div class="card-image" style="background-image: url(${items[c].acf.card_image})"></div>
                 <h3>${items[c].title.rendered}</h3>
                 <p>Posted: ${dateFix}</p>
+                <p>Category: ${items[c]._embedded["wp:term"]["0"]["0"].name}</p>
                 </a>`;
         }
 

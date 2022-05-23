@@ -21,8 +21,6 @@ async function getSearch() {
     searchContainer.innerHTML = "";
     errorContainer.innerHTML = "";
 
-    console.log(results);
-
     searchTitle.innerText = `Search Term: "${search}"`;
 
     if (results.length === 0) {
