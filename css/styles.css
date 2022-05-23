@@ -1142,10 +1142,6 @@ h4 {
     --items-per-screen: 4;
   }
 
-  .modal-dialog {
-    width: 60%;
-  }
-
   .blog-list-container {
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
