@@ -352,6 +352,11 @@ h4 {
   margin: 1rem 0;
 }
 
+.blog-page-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 .blog-author-info {
   display: flex;
   gap: 1rem;
