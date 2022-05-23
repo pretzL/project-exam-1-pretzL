@@ -9,7 +9,11 @@ openModal.forEach((modal) => {
     const modalId = this.dataset.open;
     const stringContent = modal.outerHTML;
     modalContent.innerHTML = stringContent;
-    modalText.innerHTML = modal.alt;
+    if (modal.alt !== undefined) {
+      modalText.innerHTML = modal.alt;
+    } else {
+      modalText.innerHTML = result.title.rendered;
+    }
     document.getElementById(modalId).classList.add("modal-active");
   });
 });
