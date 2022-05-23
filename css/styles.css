@@ -650,7 +650,7 @@ h4 {
   margin: 1rem 0;
 }
 
-#your-message {
+textarea {
   resize: none;
 }
 

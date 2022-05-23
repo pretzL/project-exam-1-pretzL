@@ -62,7 +62,7 @@ async function fetchSingleRecipe() {
         </div>
     </div>
     <div class="blog-page-card blog-similar blog-grid4">
-        <h3>Similar Posts<h3>
+        <h3>Similar Posts</h3>
         <div class="blog-similar-content"></div>
     </div>`;
 
@@ -115,6 +115,12 @@ async function fetchSingleRecipe() {
 
     const suggestedResponse = await fetch(suggestedURL);
     const suggestedPosts = await suggestedResponse.json();
+
+    console.log(suggestedPosts);
+
+    if (suggestedPosts.length === 1) {
+      suggestedContent.innerHTML = "<p>Sadly, no other posts match this post...</p>";
+    }
 
     for (let c = 0; c < suggestedPosts.length; c++) {
       const date = suggestedPosts[c].date;
