@@ -258,6 +258,7 @@ h4 {
 .card,
 .card-small {
   width: 100%;
+  max-width: 300px;
   background-color: var(--light-grey);
   box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
   border-radius: 5px;
@@ -384,6 +385,7 @@ h4 {
 .index-list-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   width: 90%;
 }
@@ -397,10 +399,15 @@ h4 {
   text-decoration: underline;
 }
 
+.previous-articles-list {
+  align-items: normal;
+}
+
 .blog-list-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
 }
 
 .blog-list-container,
@@ -965,10 +972,6 @@ textarea {
     margin-right: 2rem;
   }
 
-  .previous-articles-list {
-    align-items: normal;
-  }
-
   .blog-list-container {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
@@ -1184,11 +1187,12 @@ textarea {
 
   .blog-list-container {
     width: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-      "blog-list-grid1 blog-list-grid2 blog-list-grid3 blog-list-grid4"
-      "blog-list-grid5 blog-list-grid6 blog-list-grid7 blog-list-grid8"
-      "blog-list-grid9 blog-list-grid10 blog-list-grid0 blog-list-grid11";
+      "blog-list-grid1 blog-list-grid2 blog-list-grid3"
+      "blog-list-grid4 blog-list-grid5 blog-list-grid6"
+      "blog-list-grid7 blog-list-grid8 blog-list-grid9"
+      "blog-list-grid10 blog-list-grid0 blog-list-grid11";
   }
 
   .blog-list-grid1 {
@@ -1255,10 +1259,6 @@ textarea {
     grid-template-columns: 1fr 1fr;
   }
 
-  .previous-articles-list {
-    align-items: normal;
-  }
-
   .author-of {
     margin: 1rem 0 3rem 0;
   }
@@ -1268,9 +1268,17 @@ textarea {
     gap: 0;
   }
 }
-
-@media only screen and (min-width: 1400px) {
+/* LARGE DESKTOP */
+@media only screen and (min-width: 1380px) {
   .about-blog {
     width: 80%;
+  }
+
+  .blog-list-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "blog-list-grid1 blog-list-grid2 blog-list-grid3 blog-list-grid4"
+      "blog-list-grid5 blog-list-grid6 blog-list-grid7 blog-list-grid8"
+      "blog-list-grid9 blog-list-grid10 blog-list-grid0 blog-list-grid11";
   }
 }
