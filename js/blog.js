@@ -1,3 +1,14 @@
+// CONTAINERS
+
+const blogContent = document.querySelector(".blog-page-content");
+
+const pageTitle = document.querySelector("title");
+const pageHeading = document.querySelector(".page-heading");
+
+const blogBanner = document.querySelector(".blog-page-banner");
+
+// QUERY STRINGS
+
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
@@ -9,18 +20,15 @@ if (id === null) {
   location.href = "/";
 }
 
+// URLS
+
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/";
 
 const detailsURL = baseURL + "posts/" + id + "?_embed&acf_format=standard";
 
 const commentsURL = baseURL + "comments" + `?post=${id}` + "&_embed&acf_format=standard";
 
-const blogContent = document.querySelector(".blog-page-content");
-
-const pageTitle = document.querySelector("title");
-const pageHeading = document.querySelector(".page-heading");
-
-const blogBanner = document.querySelector(".blog-page-banner");
+// ITEMS FUNCTION
 
 async function fetchSingleRecipe() {
   try {
@@ -29,12 +37,18 @@ async function fetchSingleRecipe() {
 
     blogContent.innerHTML = "";
 
+    // ADD PAGE META DATA
+
     pageTitle.innerText = result.title.rendered + " | Food For Thought";
     pageHeading.innerText = result.title.rendered;
     blogBanner.innerHTML = `<div class="blog-page-banner-image open-modal" data-open="modal1" style="background-image: url(${result.acf.banner_image})"></div>`;
 
+    // MAKE DATE PRETTIER
+
     const date = result.date;
     const dateFix = date.split("T")[0];
+
+    // ADD THE CONTENT
 
     blogContent.innerHTML = `
     <div class="blog-page-card blog-description blog-grid1">
@@ -91,6 +105,7 @@ async function fetchSingleRecipe() {
       ${commentsResult[c].content.rendered}
       </div>`;
 
+      // GET ALL COMMENTS AND ADD THE GRID CLASS TO DISPLAY PROPERLY
       const userComment = document.querySelectorAll(".blog-user-comment");
 
       userComment.forEach((comment) => {
@@ -98,7 +113,7 @@ async function fetchSingleRecipe() {
       });
     }
 
-    // SUGGESTED
+    // SUGGESTED POSTS BASED ON THE VIEWED POSTS TAGS
     let tag1;
     let tag2;
 
@@ -118,6 +133,8 @@ async function fetchSingleRecipe() {
 
     console.log(suggestedPosts);
 
+    // IF THERE ARE NO SIMILAR POSTS, CHECKING FOR 1 SINCE THE ARRAY WILL ALWAYS RETURN THE POST THE USER IS VIEWING.
+
     if (suggestedPosts.length === 1) {
       suggestedContent.innerHTML = "<p>Sadly, no other posts match this post...</p>";
     }
@@ -126,6 +143,7 @@ async function fetchSingleRecipe() {
       const date = suggestedPosts[c].date;
       const dateFix = date.split("T")[0];
 
+      // DONT ADD THE SAME POST AS THE ONE USER IS VIEWING
       if (result.id === suggestedPosts[c].id) {
         continue;
       }
@@ -148,32 +166,38 @@ async function fetchSingleRecipe() {
     const modalContent = document.querySelector(".modal-content");
     const modalText = document.querySelector(".modal-text");
 
+    // Handle the modal itself and add the content
     openModal.forEach((modal) => {
       modal.addEventListener("click", function () {
+        // Get the correct element
         const modalId = this.dataset.open;
+        // Get the content to display in the modal
         const stringContent = modal.outerHTML;
         modalContent.innerHTML = stringContent;
+        // Checking if the modal is an actual image with an alt tag or if it's a background-image without an alt tag.
         if (modal.alt !== undefined) {
           modalText.innerHTML = modal.alt;
         } else {
           modalText.innerHTML = result.title.rendered;
         }
+        // Display the modal
         document.getElementById(modalId).classList.add("modal-active");
       });
     });
 
+    // Handling modal close
     const closeModal = document.querySelector(".close-modal");
-
+    // Clicking the close button inside the modal
     closeModal.addEventListener("click", function () {
       this.parentElement.parentElement.classList.remove("modal-active");
     });
-
+    // Clicking outside of the modal
     document.addEventListener("click", (e) => {
       if (e.target === document.querySelector(".modal.modal-active")) {
         document.querySelector(".modal.modal-active").classList.remove("modal-active");
       }
     });
-
+    // Pressing the Esc key
     document.addEventListener("keyup", (e) => {
       if (e.key === "Escape" && document.querySelector(".modal.modal-active")) {
         document.querySelector(".modal.modal-active").classList.remove("modal-active");
@@ -187,6 +211,7 @@ async function fetchSingleRecipe() {
 
 fetchSingleRecipe();
 
+// Comments section
 const form = document.querySelector(".blog-comments-form");
 
 const userName = document.querySelector("#user-name");
@@ -203,6 +228,7 @@ const validatorContainer = document.querySelector(".validator-container");
 function handleSubmit(evt) {
   evt.preventDefault();
 
+  // Comments form validation
   if (checkLength(userName.value, 4)) {
     userNameError.style.display = "none";
   } else {
@@ -225,6 +251,7 @@ function handleSubmit(evt) {
   if (checkLength(userName.value, 4) && validateEmail(emailValue.value) && checkLength(message.value, 10)) {
     validatorContainer.style.display = "block";
 
+    // PASSING THE COMMENT CONTENT TO WORDPRESS
     // Partially from https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api
 
     const [postId, name, email, comment] = evt.target.elements;
@@ -237,7 +264,7 @@ function handleSubmit(evt) {
       author_email: email.value,
       content: comment.value,
     });
-
+    // Using a ghost-user type setup and passing the users' input information as a comment
     const commentURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/comments";
     fetch(commentURL, {
       method: "POST",
@@ -253,12 +280,12 @@ function handleSubmit(evt) {
 }
 
 form.addEventListener("submit", handleSubmit);
-
+// Form length check
 function checkLength(value, char) {
   return value.trim().length > char;
 }
 
-// Taken from video "Simple form validation" from Noroff JS1 Module 4 lesson 4.
+// Check email, taken from video "Simple form validation" from Noroff JS1 Module 4 lesson 4.
 function validateEmail(email) {
   const regEx = /\S+@\S+\.\S+/;
   const patternMatches = regEx.test(email);

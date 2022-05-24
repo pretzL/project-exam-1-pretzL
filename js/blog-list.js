@@ -10,9 +10,13 @@ const cat = params.get("category");
 
 const fullCategory = "?categories=" + cat;
 
+// BASE URL FOR LIST FETCH
+
 const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/posts";
 
 let fullURL = baseURL + "?_embed&acf_format=standard&per_page=100";
+
+// IF THERE IS A CATEGORY
 
 if (cat !== null) {
   fullURL = baseURL + fullCategory + "&_embed&acf_format=standard&per_page=100";
@@ -21,6 +25,8 @@ if (cat !== null) {
 const tag = params.get("tag");
 
 const fullTag = "?tags=" + tag;
+
+// IF THERE IS A TAG
 
 if (tag !== null) {
   fullURL = baseURL + fullTag + "&_embed&acf_format=standard&per_page=100";
@@ -38,7 +44,7 @@ async function getRecipes() {
     }
 
     // PARTIALLY FROM https://www.javascripttutorial.net/javascript-array-reduce/ , PARTIALLY FROM https://stackoverflow.com/a/37826698
-
+    // Split array on the 10th iteration, format into separate containers to create view more/view less system
     if (results.length > 0) {
       const grid = results.reduce(
         (prev, val, idx) => {
@@ -52,12 +58,15 @@ async function getRecipes() {
       for (let i = 0; i < grid.length; i++) {
         blogList.innerHTML += `<div class="blog-list-container container${i}"></div>`;
 
+        // Add container number for easier fetching later on in view more/view less
         const itemContainer = document.querySelector(`.container${i}`);
 
+        // Add the hidden class if this is not the first container
         if (i > 0) {
           itemContainer.classList.add("blog-hidden");
         }
 
+        // Get the items within each 10th array iteration to create the content cards
         const items = grid[i];
 
         for (let c = 0; c < items.length; c++) {
@@ -74,7 +83,7 @@ async function getRecipes() {
                 </a>`;
         }
 
-        // ONLY ADD BUTTON IF ARRAY IS FULL
+        // ONLY ADD VIEW MORE/VIEW LESS BUTTON IF ARRAY IS FULL
         if (items.length === 10) {
           itemContainer.innerHTML += `<button class="btn blog-list-button blog-button blog-list-grid11">View more</button>`;
         }

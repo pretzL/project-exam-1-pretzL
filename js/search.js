@@ -1,12 +1,9 @@
 const searchForm = document.querySelector(".searchbar-pos");
 const input = document.querySelector("#search");
 
-const mobileForm = document.querySelector(".mobile-searchbar");
-const mobileInput = document.querySelector("#mobile-search");
-
 function validateForm(searchForm) {
   searchForm.preventDefault();
-
+  // Pass users' search word into the URL and forward to search page where the value is handled
   location.href = "/search.html?search=" + input.value;
 }
 

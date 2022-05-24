@@ -16,7 +16,7 @@ const validatorContainer = document.querySelector(".validator-container");
 
 function validateForm(evt) {
   evt.preventDefault();
-
+  // Form validation
   if (checkLength(userName.value, 5)) {
     userNameError.style.display = "none";
   } else {
@@ -45,6 +45,7 @@ function validateForm(evt) {
   if (checkLength(userName.value, 5) && validateEmail(emailForm.value) && checkLength(subjectForm.value, 15) && checkLength(messageForm.value, 25)) {
     validatorContainer.style.display = "block";
 
+    // Passing the form contents to Contact Form 7 Plugin and storing it in Flamingo, but only when the form is validated
     const formElement = evt.target;
 
     let dataObj = new FormData(formElement);
@@ -60,12 +61,12 @@ function validateForm(evt) {
 }
 
 form.addEventListener("submit", validateForm);
-
+// Input length check
 function checkLength(value, char) {
   return value.trim().length > char;
 }
 
-// Taken from video "Simple form validation" from Noroff JS1 Module 4 lesson 4.
+// Check email, taken from video "Simple form validation" from Noroff JS1 Module 4 lesson 4.
 function validateEmail(email) {
   const regEx = /\S+@\S+\.\S+/;
   const patternMatches = regEx.test(email);

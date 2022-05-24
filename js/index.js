@@ -17,6 +17,8 @@ async function getRecipes() {
     whatsNew.innerHTML = "";
     whatPeopleLove.innerHTML = "";
 
+    // CAROUSEL ITEMS CONTAINER
+
     for (let c = 0; c < results.length; c++) {
       const date = results[c].date;
       const dateFix = date.split("T")[0];
@@ -29,6 +31,8 @@ async function getRecipes() {
         </a>`;
     }
 
+    // TEXT LINK ARTICLES CONTAINER
+
     for (let a = 0; a < results.length; a++) {
       const date = results[a].date;
       const dateFix = date.split("T")[0];
@@ -39,6 +43,8 @@ async function getRecipes() {
 
       previousArticles.innerHTML += `<li><a href="/blog.html?id=${results[a].id}" class="previous-articles-link">${results[a].title.rendered}, ${dateFix}</a></li>`;
     }
+
+    // NEWEST POSTS CONTAINER
 
     for (let i = 0; i < results.length; i++) {
       const date = results[i].date;
@@ -74,9 +80,9 @@ async function getRecipes() {
 
     // POPULAR POSTS, SORTED BY MOST COMMENTS
 
-    let popPosts = [...results];
-
     // Solution for top sorting from https://codereview.stackexchange.com/questions/176809/sorting-an-array-of-objects-by-a-property-which-may-be-missing
+
+    let popPosts = [...results];
 
     function sort(array) {
       return array.sort((a, b) => {
@@ -113,6 +119,7 @@ async function getRecipes() {
 
     // CAROUSEL FROM https://www.youtube.com/watch?v=yq4BeRtUHbk
 
+    // Handle button for carousel sliding
     document.addEventListener("click", (e) => {
       let carouselButton;
       if (e.target.matches(".arrow")) {
@@ -126,6 +133,7 @@ async function getRecipes() {
       }
     });
 
+    // Carousel slide function, with infinite loop
     function moveCarousel(button) {
       const carouselContainer = document.querySelector(".carousel-container");
       const carouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--carousel-index"));
