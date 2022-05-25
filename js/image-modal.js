@@ -6,7 +6,7 @@ const modalText = document.querySelector(".modal-text");
 
 // Handle the modal itself and add the content
 openModal.forEach((modal) => {
-  modal.addEventListener("click", function () {
+  modal.addEventListener("click", () => {
     // Get the correct element
     const modalId = this.dataset.open;
     // Get the content to display in the modal
@@ -26,7 +26,7 @@ openModal.forEach((modal) => {
 // Handling modal close
 const closeModal = document.querySelector(".close-modal");
 // Clicking the close button inside the modal
-closeModal.addEventListener("click", function () {
+closeModal.addEventListener("click", () => {
   this.parentElement.parentElement.classList.remove("modal-active");
 });
 // Clicking outside of the modal
