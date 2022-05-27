@@ -47,6 +47,7 @@ async function getCategories() {
       if (i === 1) {
         catDropdown.innerHTML += `<div class="tag-dropdown"></div>`;
       }
+
       // Add each category with a category number for easier handling later
       catDropdown.innerHTML += `<p class="nav-link category-button category${i}">${results[i].name}</p>`;
 
@@ -80,6 +81,11 @@ async function getCategories() {
     tagDropdown.innerHTML = "";
 
     for (let c = 0; c < tagResults.length; c++) {
+      // Add a button to select all recipe tags
+      if (c === 0) {
+        tagDropdown.innerHTML += `<a href="/blog-list.html?category=3" class="nav-link">all</a>`;
+      }
+
       tagDropdown.innerHTML += `<a href="/blog-list.html?tag=${tagResults[c].id}" class="nav-link">${tagResults[c].name}</a>`;
     }
   } catch (error) {
