@@ -67,7 +67,7 @@ async function getCategories() {
     const tagLabel = document.querySelector(".category0");
     const tagDropdown = document.querySelector(".tag-dropdown");
 
-    // Due to previous code, clicking tag dropdown will become hidden. To avoid a lot of re-writing, we instead make sure to re-toggle it.
+    // Due to previous code, clicking tag dropdown will make category hidden. To avoid a lot of re-writing, we instead make sure to re-toggle it.
     tagLabel.addEventListener("click", () => {
       catDropdown.classList.toggle("category-active");
       tagDropdown.classList.toggle("tag-active");
