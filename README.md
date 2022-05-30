@@ -2,7 +2,7 @@
 
 ![foodforthoughtpic](https://user-images.githubusercontent.com/30121693/170965919-3ca59fae-08e5-4449-b2bd-94d8cfb5b5db.png)
 
-Food For Thought is a food blog I created for my Project Exam 1 at Noroff.
+[Food For Thought](https://pretzl-fft.netlify.app/index.html) is a food blog I created for my Project Exam 1 at Noroff.
 
 ## Description
 
