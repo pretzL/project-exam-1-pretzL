@@ -32,7 +32,7 @@ First off, clone the repo.
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:NoroffFEU/portfolio-1-example.git
+gh repo clone Noroff-FEU-Assignments/project-exam-1-pretzL
 ```
 
 2. Upload and install to your preferred hosting provider.
