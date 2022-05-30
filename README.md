@@ -1,6 +1,6 @@
 # Food For Thought
 
-![image](https://imgur.com/a/yDH9Ksf)
+![image](https://imgur.com/Xfb3BYb)
 
 Food For Thought is a food blog I created for my Project Exam 1 at Noroff.
 
