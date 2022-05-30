@@ -1,67 +1,68 @@
-## Project Exam 1
+# Food For Thought
 
-## Goal
+![image](https://imgur.com/a/yDH9Ksf)
 
-To put into practice the skills learned over your first year of studies.
+Food For Thought is a food blog I created for my Project Exam 1 at Noroff.
 
-## Brief
-You have been tasked with creating a blog site. You can choose the design and topics covered on the blog, but it should have at least the following pages:
--	Home page
--	About page
--	List of blog posts
--	Blog post specific pages
--	Contact page.
+## Description
 
-### Home Page
-The home page should have a ‘Latest Posts’ section which uses a carousel (slider) for users to click to view more posts. For example, by default the user can see four posts, then they can click an arrow on the right to view the next four posts, and click it again to view the next four posts. The user can also click back to view results they had previously seen. This must be implemented for desktop at least, but if you want a simpler layout for mobile, you can change it from being in a carousel.
+Food For Thought was originally created for my Project Exam 1 at Noroff. Since then, it has become a site where me and my friends add recipes and food tips which we find useful in order to more easily share them between us. Food For Thought is built with vanilla JavaScript and uses WordPress as a headless CMS in order to store content. It's built to be a fully responsive across any screen size and uses a mix of categorization in order to display relevant content based on user input.
 
-### Blog Page
+The main features are:
 
-The blog posts page should show the first 10 blogs, and the user should click to view more results which then show underneath the first 10 blogs.
+- Fully responsive
+- WordPress CMS
+- Completely based on vanilla JavaScript
+- Search element
+- Future-proofed blog-list element
 
-### Blog Specific Page
+## Built With
 
-The content of the blog specific page should be dynamically built using a query string parameter based on whatever link the user clicked. The title of the blog specific page should change based on the blog that has been clicked on e.g. “My Blog | An Article I Wrote”.
+- Vanilla JavaScript
+- [WordPress](https://wordpress.com/)
 
-If images on the blog post page are clicked, a modal should appear giving the user a bigger view of that image. Clicking outside the image should hide the modal.
+## Getting Started
 
-### Contact page
+This project is already fully deployed, so there is no extra work required. Should you still want to deploy it yourself, follow the below steps.
 
-Create a contact us page, there should be 4 textboxes on this page.
--	Name (Should be more than 5 characters long)
--	Email address (Must be a valid email address)
--	Subject (Should be more than 15 characters long)
--	Message content (Should be more than 25 characters long)
+### Installing
 
-Please use JavaScript for validation, show error messages if the values in the textboxes do not meet the requirements.
+First off, clone the repo.
 
-### WordPress
+1. Clone the repo:
 
-The content for your website will be stored on a WordPress installation used as a Headless CMS. It’s important to note that we are only using WordPress to provide an API and add content for the blog. You should not submit a link to a WordPress site, but build your website using HTML, CSS and JavaScript and making a call to the WordPress REST API to fetch the data. 
+```bash
+git clone git@github.com:NoroffFEU/portfolio-1-example.git
+```
 
-The project has two aspects:
--	API from your WordPress installation
--	Your website built with HTML, CSS and JavaScript
+2. Upload and install to your preferred hosting provider.
 
-You will need to add at least 12 blogs for your website. You can use lorem ipsum for paragraphs if you need, but headings, images etc. should all make sense.
+This is usually done through the hosting's own file manager or via FTP. Check which one you should use through your hosting provider.
 
-Note that this is an exam, and therefore tutor support will be limited as per the study plan.
+### Running
 
-## Level 1 Process
+So long as you have uploaded the provided files and deployed it to a website, the project should be running and fetching content from the WordPress Headless CMS.
 
-1.	Decide on the theme for the blog you’re going to make
-2.	Create a prototype of the website
-3.	Install WordPress on your web host and add the blogs on the admin panel. 
-4.	Use the GitHub repo created by GitHub Classroom for your files and deploy to Netlify
-5.	Build your website using HTML, CSS and JavaScript making a call to the WordPress REST API to fetch your data.
-6.	Install Hotjar on your website.
-7.	Ask users to test your website, and adjust based on their feedback and any insights from Hotjar.
-8.	Write a report documenting your project (template provided in this repository).
-9.	Submit your report as a PDF and a link to both your Netlify deployment and your GitHub repo.
- 
-## Level 2 Process (optional)
+## Contributing
 
-1.	You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for. 
-2.	Post the data from the contact form to WordPress so you have the details saved.
-3.	Allow users to submit comments on a blog post, and post this data to WordPress
+If you would like to contribute to the project, make sure to open a pull request so code can be reviewed, or create an issue for the problem you are experiencing or a feature you would like to see added.
 
+## Contact
+
+If you would like to contact me, feel free to do so via the following methods:
+
+[The contact form built into the Food For Thought page](https://pretzl-fft.netlify.app/contact.html)
+
+[My LinkedIn page](https://www.linkedin.com/in/eric-pretzinger-0753551a4/)
+
+Email: ericpretzinger@gmail.com
+
+Discord: pretzL#0001
+
+## License
+
+This project is licensed under a Creative Commons license. It is open for contributions, but please credit the project if you use the code in your own projects.
+
+## Acknowledgments
+
+I would like to first off acknowledge Noroff and its tutors for playing a vital part in my development career. I'd also like to acknowledge fellow students Toni and Alexander for their help through acting as a rubber duck on multiple occasions, and providing helpful resources for solving various problems I've experienced throughout this project. I also want to acknowledge great resources such as the Web Dev Simplified YouTube channel for providing useful insight into programming and development.
