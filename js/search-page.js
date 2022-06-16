@@ -1,10 +1,3 @@
-// URLs
-const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/search";
-
-const url = baseURL + "?search=" + search + "&acf_format=standard&context=embed&_embed&per_page=20";
-
-const imageURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/media" + "?_embed&per_page=100";
-
 // QUERY STRINGS
 const queryString = document.location.search;
 
@@ -14,6 +7,13 @@ const search = params.get("search");
 
 const searchContainer = document.querySelector(".search-content");
 const searchTitle = document.querySelector(".search-title");
+
+// URLs
+const baseURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/search";
+
+const url = baseURL + "?search=" + search + "&acf_format=standard&context=embed&_embed&per_page=20";
+
+const imageURL = "https://pretzl.one/foodforthought/wp-json/wp/v2/media" + "?_embed&per_page=100";
 
 async function getSearch() {
   try {
