@@ -118,6 +118,22 @@ footer {
   margin-top: auto;
 }
 
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--orange);
+  border-radius: 10px;
+}
+
 /* OTHER ELEMENTS */
 
 .page-title {
@@ -536,6 +552,10 @@ h4 {
   padding: 1rem 0;
   width: 100%;
   left: 0;
+}
+
+.category-dropdown {
+  min-width: 150px;
 }
 
 .tag-dropdown {
